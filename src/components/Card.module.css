@@ -1,0 +1,104 @@
+.headerChild {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.secondaryText,
+.titleGoesHere {
+  align-self: stretch;
+  position: relative;
+}
+.secondaryText {
+  font-size: var(--laptop-headline-small-size);
+  line-height: 24px;
+  font-family: var(--laptop-headline-small);
+}
+.header,
+.titleText {
+  display: flex;
+  justify-content: center;
+}
+.titleText {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5xs);
+  min-width: 162px;
+}
+.header {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+  gap: var(--gap-13xl);
+}
+.card8Child {
+  align-self: stretch;
+  height: 194px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.loremIpsumDolor {
+  flex: 1;
+  position: relative;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+.bottomText {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-base);
+}
+.bottom,
+.card8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.bottom {
+  align-self: stretch;
+  padding: var(--padding-base);
+  gap: var(--gap-5xl);
+  font-size: var(--font-size-xl);
+  font-family: var(--laptop-headline-small);
+}
+.card8 {
+  flex: 1;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 900px) {
+  .titleGoesHere {
+    font-size: var(--font-size-7xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .secondaryText,
+  .titleGoesHere {
+    font-size: var(--font-size-lgi);
+  }
+  .secondaryText {
+    line-height: 19px;
+  }
+  .header {
+    gap: var(--gap-base);
+    flex-wrap: wrap;
+  }
+  .loremIpsumDolor {
+    font-size: var(--font-size-base);
+    line-height: 16px;
+  }
+}

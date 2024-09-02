@@ -1,0 +1,142 @@
+.meditrack1 {
+  margin: 0;
+}
+.meditrack {
+  margin: 0;
+  height: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: inherit;
+  display: inline-block;
+  text-shadow: 1px 0 0#fff, 0 1px 0#fff, -1px 0 0#fff, 0-1px 0#fff;
+  max-width: 100%;
+}
+.mainHeader {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-23xl-5) 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frameChild {
+  height: 70px;
+  width: 6px;
+  position: relative;
+}
+.dawnOfHope {
+  margin: 0;
+  height: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.dawnOfHopeWrapper,
+.vectorParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.dawnOfHopeWrapper {
+  flex: 1;
+  padding: var(--padding-7xl-5) var(--padding-3xs);
+  min-width: 396px;
+}
+.vectorParent {
+  align-self: stretch;
+  padding: var(--padding-base) var(--padding-smi) var(--padding-base)
+    var(--padding-26xl);
+  gap: var(--gap-base);
+  font-size: var(--font-size-29xl);
+}
+.designedToManage {
+  flex: 1;
+  position: relative;
+  line-height: 30px;
+  font-weight: 500;
+  display: inline-block;
+  max-width: 100%;
+}
+.textAuto {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  text-align: justify;
+  font-size: var(--laptop-headline-small-size);
+  font-family: var(--laptop-headline-small);
+}
+.commonButton {
+  box-shadow: var(--dp-penumbra);
+  white-space: nowrap;
+}
+.webLeftText {
+  width: 690px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+  min-width: 690px;
+  max-width: 100%;
+  z-index: 2;
+  text-align: left;
+  font-size: var(--font-size-109xl);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 1650px) {
+  .webLeftText {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 900px) {
+  .meditrack {
+    font-size: var(--font-size-32xl);
+  }
+  .frameChild {
+    width: 100%;
+    height: 6px;
+  }
+  .dawnOfHope {
+    font-size: var(--font-size-19xl);
+  }
+  .dawnOfHopeWrapper {
+    min-width: 100%;
+  }
+  .vectorParent {
+    flex-wrap: wrap;
+    padding-left: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .webLeftText {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .meditrack {
+    font-size: var(--font-size-13xl);
+  }
+  .dawnOfHope {
+    font-size: var(--font-size-10xl);
+  }
+  .designedToManage {
+    font-size: var(--font-size-lgi);
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,28 @@
+.meditrackProIs {
+  flex: 1;
+  position: absolute;
+  margin: 0 !important;
+  top: calc(50% - 238px);
+  left: 0;
+  line-height: 34px;
+}
+.aboutText {
+  align-self: stretch;
+  height: 290px;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  text-align: justify;
+  font-size: var(--laptop-headline-small-size);
+  color: var(--color-black);
+  font-family: var(--laptop-headline-small);
+}
+@media screen and (max-width: 450px) {
+  .meditrackProIs {
+    font-size: var(--font-size-lgi);
+    line-height: 27px;
+  }
+}

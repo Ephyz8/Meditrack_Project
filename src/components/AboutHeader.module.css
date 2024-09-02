@@ -1,0 +1,38 @@
+.trackAndManage {
+  margin: 0;
+}
+.healthcareTechnologyManagemeContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 60px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.aboutHeader {
+  width: 880px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-15xl-5) var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-45xl);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 900px) {
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--font-size-32xl);
+    line-height: 48px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--font-size-19xl);
+    line-height: 36px;
+  }
+}
