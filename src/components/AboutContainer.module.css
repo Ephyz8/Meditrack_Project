@@ -1,0 +1,141 @@
+.webLeftImage {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.aboutSecWrapper,
+.webLeftImageWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.webLeftImageWrapper {
+  height: 887px;
+  width: 533px;
+  flex-direction: column;
+  padding: var(--padding-6xs) 0 0;
+  min-width: 533px;
+}
+.aboutSecWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-8xs);
+  text-align: left;
+}
+.c {
+  letter-spacing: 0.16em;
+}
+.healthcareTechnology {
+  margin: 0;
+}
+.healthcareTechnologyManagemeContainer {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.aboutHeader,
+.technologyFocus {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.aboutHeader {
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+  font-family: var(--font-rubik);
+}
+.technologyFocus {
+  padding: 0 var(--padding-4xs);
+  box-sizing: border-box;
+  font-size: var(--laptop-headline-small-size);
+}
+.aboutDetails,
+.frameParent,
+.frameWrapper,
+.technologyFocus {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.aboutDetails {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-19xl);
+  min-width: 419px;
+}
+.frameParent,
+.frameWrapper {
+  flex-direction: row;
+  align-items: flex-start;
+}
+.frameParent {
+  flex: 1;
+  gap: var(--gap-116xl);
+}
+.frameWrapper {
+  align-self: stretch;
+  padding: 0 var(--padding-45xl);
+  box-sizing: border-box;
+  text-align: justify;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--laptop-headline-small);
+}
+@media screen and (max-width: 1350px) {
+  .webLeftImage {
+    align-self: stretch;
+    width: auto;
+  }
+  .webLeftImageWrapper {
+    flex: 1;
+  }
+  .frameParent {
+    gap: var(--gap-48xl);
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .webLeftImageWrapper {
+    min-width: 100%;
+  }
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--font-size-13xl);
+    line-height: 26px;
+  }
+  .aboutDetails {
+    gap: var(--gap-lgi);
+    min-width: 100%;
+  }
+  .frameParent {
+    gap: var(--gap-15xl);
+  }
+  .frameWrapper {
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--laptop-headline-small-size);
+    line-height: 19px;
+  }
+  .frameParent {
+    gap: var(--gap-mid);
+  }
+}

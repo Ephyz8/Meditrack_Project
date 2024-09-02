@@ -1,41 +1,58 @@
-.aboutIllustrationIcon {
+.aboutSubtitleIcon {
+  align-self: stretch;
   height: 4px;
-  width: 49px;
-  position: absolute;
-  margin: 0 !important;
-  bottom: 57.5px;
-  left: -23.5px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
   object-fit: contain;
+}
+.aboutSubtitleWrapper {
+  width: 49px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xl-5) 0 0;
+  box-sizing: border-box;
 }
 .aboutMeditrackPro {
   margin: 0;
-  width: 392px;
   position: relative;
   font-size: inherit;
   line-height: 45px;
   font-weight: 600;
   font-family: inherit;
   display: inline-block;
-  max-width: 107%;
-  flex-shrink: 0;
+  max-width: 100%;
 }
 .aboutSec {
-  position: absolute;
-  top: 0;
-  left: 180px;
   background-color: var(--color-white);
-  width: 418px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-20xl) 0 var(--padding-20xl) var(--padding-30xl);
+  padding: var(--padding-6xs-5) var(--padding-11xs);
   box-sizing: border-box;
   gap: var(--gap-5xl);
-  white-space: nowrap;
   max-width: 100%;
   text-align: left;
   font-size: var(--font-size-21xl);
   color: var(--color-black);
   font-family: var(--laptop-headline-small);
+}
+@media screen and (max-width: 800px) {
+  .aboutMeditrackPro {
+    font-size: var(--font-size-13xl);
+    line-height: 36px;
+  }
+  .aboutSec {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .aboutMeditrackPro {
+    font-size: var(--laptop-headline-small-size);
+    line-height: 27px;
+  }
 }

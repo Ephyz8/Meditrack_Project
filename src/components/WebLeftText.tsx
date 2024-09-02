@@ -1,6 +1,4 @@
 import { FunctionComponent } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
 import styles from "./WebLeftText.module.css";
 
 export type WebLeftTextType = {
@@ -17,9 +15,9 @@ const WebLeftText: FunctionComponent<WebLeftTextType> = ({
           <p className={styles.meditrack1}>MediTrack</p>
         </h1>
       </div>
-      <div className={styles.vectorParent}>
+      <div className={styles.heroImageIconParent}>
         <img
-          className={styles.frameChild}
+          className={styles.heroImageIcon}
           loading="lazy"
           alt=""
           src="/vector-1.svg"
@@ -37,7 +35,9 @@ const WebLeftText: FunctionComponent<WebLeftTextType> = ({
           offering role-specific functionalities.
         </div>
       </div>
-      <Button className={styles.commonButton} variant="primary" />
+      <div className={styles.commonButton}>
+        <div className={styles.button}>Get started</div>
+      </div>
     </div>
   );
 };

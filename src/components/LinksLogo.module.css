@@ -13,7 +13,6 @@
   min-width: 39px;
 }
 .homeLink {
-  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,42 +28,32 @@
   min-width: 40px;
 }
 .homeLink1 {
-  flex: 1;
-  flex-direction: row;
-  justify-content: center;
-  padding: var(--padding-5xs) 0;
-}
-.homeLink1,
-.homeLink2,
-.register {
-  display: flex;
-  align-items: center;
-}
-.register {
-  text-decoration: none;
-  height: 0;
-  width: 55px;
-  position: relative;
-  color: inherit;
-  flex-shrink: 0;
-}
-.homeLink2 {
   width: 41.6px;
+  display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   padding: var(--padding-5xs) 0;
   box-sizing: border-box;
 }
-.login {
+.login,
+.register {
   text-decoration: none;
   height: 0;
   position: relative;
   color: inherit;
+}
+.register {
+  width: 55px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.login {
   display: inline-block;
   min-width: 37px;
 }
 .homeLink3 {
-  flex: 1;
   flex-direction: row;
   justify-content: center;
   padding: var(--padding-5xs) var(--padding-11xs);
@@ -89,54 +78,53 @@
   padding: var(--padding-5xs) 0;
   box-sizing: border-box;
 }
-.search,
-.vectorIcon {
-  width: 16px;
+.searchIcon {
   height: 16px;
-}
-.vectorIcon {
+  width: 16px;
   position: relative;
 }
-.search {
-  overflow: hidden;
-  flex-direction: row;
-  align-items: center;
-}
-.headerLinks,
 .links,
 .search {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search {
+  overflow: hidden;
   justify-content: center;
+  width: 16px;
+  height: 16px;
 }
 .links {
   align-self: stretch;
-  flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
   padding: var(--padding-4xs-5) 0;
   box-sizing: border-box;
-  gap: var(--gap-base);
   max-height: 33px;
+  gap: var(--gap-xl);
+}
+.headerLinks,
+.linksLogo {
+  display: flex;
+  max-width: 100%;
 }
 .headerLinks {
-  width: 304px;
+  width: 344px;
   overflow: hidden;
   flex-shrink: 0;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
 }
 .linksLogo {
-  width: 1508px;
-  display: flex;
+  align-self: stretch;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--padding-xl) 0 0;
-  box-sizing: border-box;
   top: 0;
   z-index: 99;
   position: sticky;
   gap: var(--gap-xl);
-  max-width: 100%;
   text-align: left;
   font-size: var(--font-size-sm);
   color: var(--color-white);

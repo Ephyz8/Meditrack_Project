@@ -41,6 +41,9 @@ export type CardType = {
   propFlex2?: CSSProperties["flex"];
   propFlex3?: CSSProperties["flex"];
   propAlignSelf4?: CSSProperties["alignSelf"];
+  titleTextFlex?: CSSProperties["flex"];
+  titleTextWidth?: CSSProperties["width"];
+  card8MinWidth?: CSSProperties["minWidth"];
 };
 
 const Card: FunctionComponent<CardType> = ({
@@ -80,6 +83,9 @@ const Card: FunctionComponent<CardType> = ({
   buttonBackground,
   buttonWebkitBackgroundClip,
   buttonWebkitTextFillColor,
+  titleTextFlex,
+  titleTextWidth,
+  card8MinWidth,
 }) => {
   const card8Style: CSSProperties = useMemo(() => {
     return {
@@ -90,6 +96,7 @@ const Card: FunctionComponent<CardType> = ({
       marginBottom: propMarginBottom,
       height: propHeight,
       padding: propPadding,
+      minWidth: card8MinWidth,
     };
   }, [
     propFlex,
@@ -99,6 +106,7 @@ const Card: FunctionComponent<CardType> = ({
     propMarginBottom,
     propHeight,
     propPadding,
+    card8MinWidth,
   ]);
 
   const headerStyle: CSSProperties = useMemo(() => {
@@ -112,8 +120,16 @@ const Card: FunctionComponent<CardType> = ({
       minWidth: propMinWidth,
       padding: propPadding1,
       alignSelf: propAlignSelf1,
+      flex: titleTextFlex,
+      width: titleTextWidth,
     };
-  }, [propMinWidth, propPadding1, propAlignSelf1]);
+  }, [
+    propMinWidth,
+    propPadding1,
+    propAlignSelf1,
+    titleTextFlex,
+    titleTextWidth,
+  ]);
 
   const titleGoesHereStyle: CSSProperties = useMemo(() => {
     return {

@@ -1,5 +1,5 @@
-.subParagraphIcon {
-  height: 168px;
+.aboutText2Child {
+  height: 140px;
   width: 6px;
   position: relative;
 }
@@ -9,41 +9,33 @@
   line-height: 25px;
 }
 .aboutText2,
-.subParagraphContent {
-  flex: 1;
+.throughInnovativeTechnologyWrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
   max-width: 100%;
 }
-.subParagraphContent {
+.throughInnovativeTechnologyWrapper {
+  flex: 1;
   flex-direction: column;
-  padding: var(--padding-2xl-5) 0 0;
-  min-width: 402px;
+  padding: var(--padding-5xs-5) 0 0;
+  min-width: 309px;
 }
 .aboutText2 {
-  background-color: var(--color-white);
+  width: 579px;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
   padding: var(--padding-base) var(--padding-base) var(--padding-base)
     var(--padding-45xl);
   gap: var(--gap-lg);
   text-align: justify;
-  font-size: var(--font-size-13xl);
+  font-size: var(--laptop-headline-small-size);
   color: var(--color-black);
   font-family: var(--laptop-headline-small);
 }
-@media screen and (max-width: 900px) {
-  .throughInnovativeTechnology {
-    font-size: var(--font-size-7xl);
-    line-height: 20px;
-  }
-  .subParagraphContent {
-    min-width: 100%;
-  }
+@media screen and (max-width: 800px) {
   .aboutText2 {
+    flex-wrap: wrap;
     padding-left: var(--padding-13xl);
     box-sizing: border-box;
   }
@@ -51,6 +43,6 @@
 @media screen and (max-width: 450px) {
   .throughInnovativeTechnology {
     font-size: var(--font-size-lgi);
-    line-height: 15px;
+    line-height: 20px;
   }
 }

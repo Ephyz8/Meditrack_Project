@@ -8,12 +8,14 @@ export type AboutSecType = {
 const AboutSec: FunctionComponent<AboutSecType> = ({ className = "" }) => {
   return (
     <div className={[styles.aboutSec, className].join(" ")}>
-      <img
-        className={styles.aboutIllustrationIcon}
-        loading="lazy"
-        alt=""
-        src="/vector-2.svg"
-      />
+      <div className={styles.aboutSubtitleWrapper}>
+        <img
+          className={styles.aboutSubtitleIcon}
+          loading="lazy"
+          alt=""
+          src="/vector-2.svg"
+        />
+      </div>
       <h2 className={styles.aboutMeditrackPro}>About MediTrack Pro</h2>
     </div>
   );

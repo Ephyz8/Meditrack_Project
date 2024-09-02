@@ -5,7 +5,8 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Root from "./pages/Root";
+import Root1 from "./pages/Root";
+import Root from "./pages/Root1";
 
 function App() {
   const action = useNavigationType();
@@ -27,6 +28,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/root":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -45,7 +50,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Root />} />
+      <Route path="/" element={<Root1 />} />
+      <Route path="/root" element={<Root />} />
     </Routes>
   );
 }

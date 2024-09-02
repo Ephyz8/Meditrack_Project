@@ -1,167 +1,61 @@
-.contentHeaderIcon {
-  height: 790px;
-  flex: 1;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  object-fit: cover;
-}
-.content {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
+.frameParent {
+  width: 1440px;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 0 18px;
-  box-sizing: border-box;
-  max-width: 100%;
-}
-.webLeftImage {
-  width: 606px;
-  height: 880px;
-  position: absolute;
-  margin: 0 !important;
-  top: 860px;
-  left: 120px;
-  overflow: hidden;
+  gap: 69px;
   flex-shrink: 0;
-  object-fit: cover;
-}
-.healthcareTechnology {
-  margin: 0;
-}
-.healthcareTechnologyManagemeContainer {
-  margin: 0;
-  height: 108px;
-  flex: 1;
-  position: relative;
-  font-size: inherit;
-  line-height: 28px;
-  font-weight: 700;
-  font-family: inherit;
-  display: inline-block;
   max-width: 100%;
 }
-.aboutHeader {
-  position: absolute;
-  top: 108px;
-  left: 0;
-  background-color: var(--color-white);
-  width: 936px;
+.card6Parent,
+.frameParent,
+.main {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-3xs);
-  box-sizing: border-box;
-  max-width: 100%;
-  z-index: 1;
 }
-.aboutContent {
-  align-self: stretch;
-  height: 236px;
-  position: relative;
-  max-width: 100%;
-}
-.subParagraph {
+.card6Parent {
   align-self: stretch;
   flex-direction: row;
-  justify-content: flex-start;
-  padding: 0 0 0 4px;
-  box-sizing: border-box;
-}
-.aboutDetails,
-.aboutParagraph,
-.subParagraph {
-  display: flex;
-  align-items: flex-start;
-  max-width: 100%;
-}
-.aboutParagraph {
-  flex: 1;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 78px;
-}
-.aboutDetails {
-  width: 831px;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 52px;
-  box-sizing: border-box;
-}
-.aboutContentParent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-start;
-  gap: 116px;
-  max-width: 100%;
-}
-.footer {
-  width: 1072px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 68px;
+  padding: 0 0 var(--padding-4xs);
   box-sizing: border-box;
+  gap: var(--gap-69xl);
   max-width: 100%;
 }
-.root {
+.main {
   width: 100%;
   position: relative;
   background-color: var(--color-white);
   overflow: hidden;
-  display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: var(--gap-25xl);
+  align-items: flex-start;
+  gap: var(--gap-51xl);
   line-height: normal;
   letter-spacing: normal;
-  text-align: justify;
-  font-size: var(--font-size-45xl);
-  color: var(--color-black);
-  font-family: var(--font-rubik);
 }
-@media screen and (max-width: 1275px) {
-  .aboutContentParent {
-    gap: 58px;
-  }
-  .footer {
-    padding-left: var(--padding-15xl);
-    padding-right: var(--padding-15xl);
-    box-sizing: border-box;
+@media screen and (max-width: 1350px) {
+  .card6Parent {
+    flex-wrap: wrap;
   }
 }
-@media screen and (max-width: 900px) {
-  .healthcareTechnologyManagemeContainer {
-    font-size: var(--font-size-32xl);
-    line-height: 22px;
+@media screen and (max-width: 800px) {
+  .frameParent {
+    gap: var(--gap-15xl);
   }
-  .aboutParagraph {
-    gap: 39px;
+  .card6Parent {
+    gap: var(--gap-25xl);
   }
-  .aboutDetails {
-    padding-left: var(--padding-7xl);
-    padding-right: var(--padding-7xl);
-    box-sizing: border-box;
-  }
-  .aboutContentParent {
-    gap: 29px;
+  .main {
+    gap: var(--gap-16xl);
   }
 }
 @media screen and (max-width: 450px) {
-  .healthcareTechnologyManagemeContainer {
-    font-size: var(--font-size-19xl);
-    line-height: 17px;
+  .frameParent {
+    gap: var(--gap-mid);
   }
-  .aboutParagraph {
-    gap: 19px;
-  }
-  .root {
+  .card6Parent {
     gap: var(--gap-3xl);
+  }
+  .main {
+    gap: var(--gap-mid);
   }
 }

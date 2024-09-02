@@ -11,22 +11,27 @@ const ContentHeader: FunctionComponent<ContentHeaderType> = ({
   className = "",
 }) => {
   return (
-    <section className={[styles.contentHeader, className].join(" ")}>
-      <LinksLogo />
-      <div className={styles.mainContent}>
-        <WebLeftText />
-        <div className={styles.mainImage}>
-          <div className={styles.mainPic}>
-            <img
-              className={styles.mainPicChild}
-              loading="lazy"
-              alt=""
-              src="/rectangle-19@2x.png"
-            />
-          </div>
+    <div className={[styles.nestedFeature, className].join(" ")}>
+      <div className={styles.featureListParent}>
+        <img
+          className={styles.featureListIcon}
+          alt=""
+          src="/content-header@2x.png"
+        />
+        <div className={styles.mainPic}>
+          <img
+            className={styles.unsplash1csavdwfiewIcon}
+            loading="lazy"
+            alt=""
+            src="/unsplash1csavdwfiew@2x.png"
+          />
         </div>
       </div>
-    </section>
+      <LinksLogo />
+      <div className={styles.content}>
+        <WebLeftText />
+      </div>
+    </div>
   );
 };
 
