@@ -9,13 +9,13 @@ export type CardListType = {
 
 const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
   return (
-    <div className={[styles.cardList, className].join(" ")}>
+    <div className={[styles.featuresGrid, className].join(" ")}>
       <div className={styles.aboutHeaderWrapper}>
         <AboutHeader />
       </div>
-      <footer className={styles.featureCards}>
-        <div className={styles.cardList1}>
-          <div className={styles.cardPair}>
+      <footer className={styles.cardListContainer}>
+        <div className={styles.doubleCardContainerParent}>
+          <div className={styles.doubleCardContainer}>
             <Card
               propFlex="unset"
               propAlignSelf="unset"
@@ -44,6 +44,11 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
               titleTextFlex="1"
               titleTextWidth="unset"
               card8MinWidth="377px"
+              headerFlexWrap="unset"
+              titleGoesHereHeight="unset"
+              titleGoesHereDisplay="unset"
+              bottomHeight="unset"
+              card8Overflow="hidden"
             />
             <Card
               propFlex="unset"
@@ -84,9 +89,14 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
               titleTextFlex="1"
               titleTextWidth="unset"
               card8MinWidth="354px"
+              headerFlexWrap="unset"
+              titleGoesHereHeight="unset"
+              titleGoesHereDisplay="unset"
+              bottomHeight="unset"
+              card8Overflow="hidden"
             />
           </div>
-          <div className={styles.cardPair}>
+          <div className={styles.doubleCardContainer}>
             <Card
               propFlex="unset"
               propAlignSelf="unset"
@@ -126,6 +136,11 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
               titleTextFlex="1"
               titleTextWidth="unset"
               card8MinWidth="unset"
+              headerFlexWrap="unset"
+              titleGoesHereHeight="unset"
+              titleGoesHereDisplay="unset"
+              bottomHeight="unset"
+              card8Overflow="unset"
             />
             <Card
               propFlex="unset"
@@ -166,10 +181,15 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
               titleTextFlex="1"
               titleTextWidth="unset"
               card8MinWidth="unset"
+              headerFlexWrap="unset"
+              titleGoesHereHeight="unset"
+              titleGoesHereDisplay="unset"
+              bottomHeight="unset"
+              card8Overflow="unset"
             />
           </div>
         </div>
-        <div className={styles.expandedCardList}>
+        <div className={styles.card3Parent}>
           <Card
             propFlex="unset"
             propAlignSelf="stretch"
@@ -209,6 +229,11 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
             titleTextFlex="1"
             titleTextWidth="unset"
             card8MinWidth="unset"
+            headerFlexWrap="unset"
+            titleGoesHereHeight="unset"
+            titleGoesHereDisplay="unset"
+            bottomHeight="unset"
+            card8Overflow="hidden"
           />
           <Card
             titleGoesHere="REPORTS"

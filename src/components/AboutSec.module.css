@@ -7,7 +7,7 @@
   flex-shrink: 0;
   object-fit: contain;
 }
-.aboutSubtitleWrapper {
+.introIcon {
   width: 49px;
   display: flex;
   flex-direction: column;

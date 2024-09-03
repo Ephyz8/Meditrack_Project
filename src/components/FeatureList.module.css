@@ -1,0 +1,69 @@
+.content,
+.linksLogoParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.content {
+  width: 664px;
+  padding: var(--padding-3xs);
+  z-index: 1;
+}
+.linksLogoParent {
+  flex: 1;
+  background-color: var(--color-gray-100);
+  padding: var(--padding-25xl) var(--padding-45xl) var(--padding-smi);
+  gap: var(--gap-46xl);
+}
+.unsplash1csavdwfiewIcon {
+  position: absolute;
+  top: calc(50% - 241px);
+  left: calc(50% - 316px);
+  width: 588px;
+  height: 502px;
+  object-fit: cover;
+}
+.mainPic {
+  height: 530px;
+  width: 760px;
+  position: absolute;
+  margin: 0 !important;
+  right: 38px;
+  bottom: -3px;
+  z-index: 2;
+}
+.featureList {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  gap: var(--gap-3xs);
+  background-image: url(/public/feature-list@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--laptop-headline-small-size);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 800px) {
+  .linksLogoParent {
+    gap: var(--gap-13xl);
+    padding: var(--padding-10xl) var(--padding-13xl) var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .linksLogoParent {
+    gap: var(--gap-base);
+    padding-top: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

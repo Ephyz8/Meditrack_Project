@@ -1,14 +1,16 @@
 import { FunctionComponent } from "react";
-import ContentHeader from "../components/ContentHeader";
+import FeatureList from "../components/FeatureList";
 import Card from "../components/Card";
-import AboutContainer from "../components/AboutContainer";
+import AboutSec from "../components/AboutSec";
+import AboutText1 from "../components/AboutText1";
+import AboutText from "../components/AboutText";
 import CardList from "../components/CardList";
 import styles from "./Root.module.css";
 
 const Root1: FunctionComponent = () => {
   return (
     <div className={styles.main}>
-      <ContentHeader />
+      <FeatureList />
       <main className={styles.card6Parent}>
         <Card
           propFlex="unset"
@@ -49,9 +51,44 @@ const Root1: FunctionComponent = () => {
           titleTextFlex="1"
           titleTextWidth="unset"
           card8MinWidth="unset"
+          headerFlexWrap="unset"
+          titleGoesHereHeight="unset"
+          titleGoesHereDisplay="unset"
+          bottomHeight="unset"
+          card8Overflow="unset"
         />
-        <section className={styles.frameParent}>
-          <AboutContainer />
+        <section className={styles.cardListColumnOne}>
+          <div className={styles.aboutContent}>
+            <div className={styles.aboutInfoContainer}>
+              <div className={styles.imageContainer}>
+                <img
+                  className={styles.webLeftImage}
+                  loading="lazy"
+                  alt=""
+                  src="/web-left-image@2x.png"
+                />
+              </div>
+              <div className={styles.moreAboutContainerParent}>
+                <div className={styles.moreAboutContainer}>
+                  <AboutSec />
+                </div>
+                <div className={styles.aboutHeader}>
+                  <h2 className={styles.healthcareTechnologyManagemeContainer}>
+                    <p className={styles.healthcareTechnology}>
+                      HEALTHCARE TE
+                      <span className={styles.c}>C</span>HNOLOGY
+                    </p>
+                    <p className={styles.healthcareTechnology}>&nbsp;</p>
+                    <p className={styles.healthcareTechnology}>MANAGEMENT</p>
+                  </h2>
+                </div>
+                <AboutText1 />
+                <div className={styles.featureContent}>
+                  <AboutText />
+                </div>
+              </div>
+            </div>
+          </div>
           <CardList />
         </section>
       </main>

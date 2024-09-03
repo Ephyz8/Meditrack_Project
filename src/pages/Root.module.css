@@ -1,13 +1,109 @@
-.frameParent {
-  width: 1440px;
-  flex-direction: column;
+.webLeftImage {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.imageContainer,
+.moreAboutContainer {
+  display: flex;
   align-items: flex-start;
-  gap: 69px;
-  flex-shrink: 0;
+  justify-content: flex-start;
+  box-sizing: border-box;
   max-width: 100%;
 }
+.imageContainer {
+  height: 887px;
+  width: 533px;
+  flex-direction: column;
+  padding: 7px 0 0;
+  min-width: 533px;
+}
+.moreAboutContainer {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 5px;
+}
+.c {
+  letter-spacing: 0.16em;
+}
+.healthcareTechnology {
+  margin: 0;
+}
+.healthcareTechnologyManagemeContainer {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.aboutHeader {
+  align-self: stretch;
+  background-color: var(--color-white);
+  flex-direction: row;
+  align-items: flex-start;
+}
+.aboutHeader,
+.featureContent,
+.moreAboutContainerParent {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.featureContent {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-4xs);
+  box-sizing: border-box;
+}
+.moreAboutContainerParent {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 38px;
+  min-width: 419px;
+}
+.aboutInfoContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 135px;
+}
+.aboutContent,
+.aboutInfoContainer,
+.cardListColumnOne {
+  align-items: flex-start;
+  max-width: 100%;
+}
+.aboutContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--padding-45xl);
+  box-sizing: border-box;
+}
+.cardListColumnOne {
+  width: 1440px;
+  flex-direction: column;
+  gap: 69px;
+  flex-shrink: 0;
+  text-align: justify;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-rubik);
+}
 .card6Parent,
-.frameParent,
+.cardListColumnOne,
 .main {
   display: flex;
   justify-content: flex-start;
@@ -33,12 +129,42 @@
   letter-spacing: normal;
 }
 @media screen and (max-width: 1350px) {
+  .webLeftImage {
+    align-self: stretch;
+    width: auto;
+  }
+  .imageContainer {
+    flex: 1;
+  }
+  .aboutInfoContainer {
+    gap: var(--gap-48xl);
+    flex-wrap: wrap;
+  }
   .card6Parent {
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 800px) {
-  .frameParent {
+  .imageContainer {
+    min-width: 100%;
+  }
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--font-size-13xl);
+    line-height: 26px;
+  }
+  .moreAboutContainerParent {
+    gap: 19px;
+    min-width: 100%;
+  }
+  .aboutInfoContainer {
+    gap: var(--gap-15xl);
+  }
+  .aboutContent {
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+  .cardListColumnOne {
     gap: var(--gap-15xl);
   }
   .card6Parent {
@@ -49,7 +175,12 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .frameParent {
+  .healthcareTechnologyManagemeContainer {
+    font-size: var(--laptop-headline-small-size);
+    line-height: 19px;
+  }
+  .aboutInfoContainer,
+  .cardListColumnOne {
     gap: var(--gap-mid);
   }
   .card6Parent {

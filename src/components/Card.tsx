@@ -44,6 +44,11 @@ export type CardType = {
   titleTextFlex?: CSSProperties["flex"];
   titleTextWidth?: CSSProperties["width"];
   card8MinWidth?: CSSProperties["minWidth"];
+  headerFlexWrap?: CSSProperties["flexWrap"];
+  titleGoesHereHeight?: CSSProperties["height"];
+  titleGoesHereDisplay?: CSSProperties["display"];
+  bottomHeight?: CSSProperties["height"];
+  card8Overflow?: CSSProperties["overflow"];
 };
 
 const Card: FunctionComponent<CardType> = ({
@@ -86,6 +91,11 @@ const Card: FunctionComponent<CardType> = ({
   titleTextFlex,
   titleTextWidth,
   card8MinWidth,
+  headerFlexWrap,
+  titleGoesHereHeight,
+  titleGoesHereDisplay,
+  bottomHeight,
+  card8Overflow,
 }) => {
   const card8Style: CSSProperties = useMemo(() => {
     return {
@@ -97,6 +107,7 @@ const Card: FunctionComponent<CardType> = ({
       height: propHeight,
       padding: propPadding,
       minWidth: card8MinWidth,
+      overflow: card8Overflow,
     };
   }, [
     propFlex,
@@ -107,13 +118,15 @@ const Card: FunctionComponent<CardType> = ({
     propHeight,
     propPadding,
     card8MinWidth,
+    card8Overflow,
   ]);
 
   const headerStyle: CSSProperties = useMemo(() => {
     return {
       height: propHeight1,
+      flexWrap: headerFlexWrap,
     };
-  }, [propHeight1]);
+  }, [propHeight1, headerFlexWrap]);
 
   const titleTextStyle: CSSProperties = useMemo(() => {
     return {
@@ -135,8 +148,10 @@ const Card: FunctionComponent<CardType> = ({
     return {
       alignSelf: propAlignSelf2,
       flex: propFlex1,
+      height: titleGoesHereHeight,
+      display: titleGoesHereDisplay,
     };
-  }, [propAlignSelf2, propFlex1]);
+  }, [propAlignSelf2, propFlex1, titleGoesHereHeight, titleGoesHereDisplay]);
 
   const secondaryTextStyle: CSSProperties = useMemo(() => {
     return {
@@ -149,8 +164,9 @@ const Card: FunctionComponent<CardType> = ({
   const bottomStyle: CSSProperties = useMemo(() => {
     return {
       flex: propFlex2,
+      height: bottomHeight,
     };
-  }, [propFlex2]);
+  }, [propFlex2, bottomHeight]);
 
   const bottomTextStyle: CSSProperties = useMemo(() => {
     return {
