@@ -8,7 +8,7 @@ export type AboutSecType = {
 const AboutSec: FunctionComponent<AboutSecType> = ({ className = "" }) => {
   return (
     <div className={[styles.aboutSec, className].join(" ")}>
-      <div className={styles.introIcon}>
+      <div className={styles.aboutSubtitleWrapper}>
         <img
           className={styles.aboutSubtitleIcon}
           loading="lazy"

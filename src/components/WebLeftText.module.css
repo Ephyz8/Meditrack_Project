@@ -50,12 +50,10 @@
 .dawnOfHopeWrapper {
   flex: 1;
   padding: var(--padding-6xs-5) var(--padding-3xs);
-  min-width: 367px;
+  min-width: 354px;
 }
 .heroImageIconParent {
   align-self: stretch;
-  flex-wrap: wrap;
-  align-content: center;
   padding: var(--padding-base) var(--padding-smi) var(--padding-base)
     var(--padding-26xl);
   gap: var(--gap-base);
@@ -106,9 +104,9 @@
   align-self: stretch;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--padding-3xl-5) 0;
+  padding: var(--padding-15xl-5) 0;
   box-sizing: border-box;
-  gap: var(--gap-21xl);
+  gap: var(--gap-13xl);
   max-width: 100%;
   text-align: left;
   font-size: var(--laptop-headline-small-size);
@@ -132,13 +130,14 @@
     min-width: 100%;
   }
   .heroImageIconParent {
+    flex-wrap: wrap;
     padding-left: var(--padding-3xl);
     box-sizing: border-box;
   }
   .webLeftText {
-    gap: var(--gap-xl);
-    padding-top: var(--padding-xl);
-    padding-bottom: var(--padding-xl);
+    gap: var(--gap-base);
+    padding-top: var(--padding-3xl);
+    padding-bottom: var(--padding-3xl);
     box-sizing: border-box;
   }
 }

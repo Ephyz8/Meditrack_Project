@@ -25,6 +25,8 @@
 .aboutText2 {
   width: 579px;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
   padding: var(--padding-base) var(--padding-base) var(--padding-base)
     var(--padding-45xl);
   gap: var(--gap-lg);
@@ -35,7 +37,6 @@
 }
 @media screen and (max-width: 800px) {
   .aboutText2 {
-    flex-wrap: wrap;
     padding-left: var(--padding-13xl);
     box-sizing: border-box;
   }

@@ -10,12 +10,12 @@ export type CardListType = {
 const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
   return (
     <div className={[styles.featuresGrid, className].join(" ")}>
-      <div className={styles.aboutHeaderWrapper}>
+      <div className={styles.cardHeaderContainer}>
         <AboutHeader />
       </div>
-      <footer className={styles.cardListContainer}>
-        <div className={styles.doubleCardContainerParent}>
-          <div className={styles.doubleCardContainer}>
+      <footer className={styles.cardListWrapper}>
+        <div className={styles.cardItemsParent}>
+          <div className={styles.cardItems}>
             <Card
               propFlex="unset"
               propAlignSelf="unset"
@@ -96,7 +96,7 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
               card8Overflow="hidden"
             />
           </div>
-          <div className={styles.doubleCardContainer}>
+          <div className={styles.cardItems}>
             <Card
               propFlex="unset"
               propAlignSelf="unset"
@@ -189,70 +189,74 @@ const CardList: FunctionComponent<CardListType> = ({ className = "" }) => {
             />
           </div>
         </div>
-        <div className={styles.card3Parent}>
-          <Card
-            propFlex="unset"
-            propAlignSelf="stretch"
-            propWidth="unset"
-            propMarginLeft="unset"
-            propMarginBottom="unset"
-            propHeight="unset"
-            propPadding="unset"
-            propHeight1="unset"
-            propMinWidth="162px"
-            propPadding1="unset"
-            propAlignSelf1="unset"
-            titleGoesHere="INVENTORY"
-            propAlignSelf2="stretch"
-            propFlex1="unset"
-            secondaryText="Document every asset"
-            propHeight2="unset"
-            propDisplay="unset"
-            propAlignSelf3="stretch"
-            rectangle18="/rectangle-18-5@2x.png"
-            propFlex2="unset"
-            propFlex3="unset"
-            loremIpsumDolorSitAmetConsecte="Efficiently manage and track all medical equipment, ensuring readiness, proper maintenance scheduling, and compliance with asset management protocols at your Hospital."
-            propAlignSelf4="unset"
-            button="Edit inventory"
-            commonButtonBoxShadow="unset"
-            commonButtonBackground="unset"
-            commonButtonPadding="12px"
-            commonButtonWidth="unset"
-            commonButtonFilter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-            buttonColor="unset"
-            buttonMinWidth="unset"
-            buttonFlex="unset"
-            buttonBackground="linear-gradient(#2eff1b, #2eff1b), linear-gradient(#2335fd, #2335fd), #2335fd"
-            buttonWebkitBackgroundClip="unset"
-            buttonWebkitTextFillColor="unset"
-            titleTextFlex="1"
-            titleTextWidth="unset"
-            card8MinWidth="unset"
-            headerFlexWrap="unset"
-            titleGoesHereHeight="unset"
-            titleGoesHereDisplay="unset"
-            bottomHeight="unset"
-            card8Overflow="hidden"
-          />
-          <Card
-            titleGoesHere="REPORTS"
-            secondaryText="Generate reports"
-            rectangle18="/rectangle-18-6@2x.png"
-            loremIpsumDolorSitAmetConsecte="Create  reports on equipment status, maintenance activities, and fault resolutions, providing valuable insights for decision-making, compliance, and improving hospital operations."
-            button="Generate report"
-            commonButtonBoxShadow="unset"
-            commonButtonBackground="unset"
-            commonButtonPadding="12px"
-            commonButtonWidth="unset"
-            commonButtonFilter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-            buttonColor="unset"
-            buttonMinWidth="unset"
-            buttonFlex="unset"
-            buttonBackground="linear-gradient(#2eff1b, #2eff1b), linear-gradient(#2335fd, #2335fd), #2335fd"
-            buttonWebkitBackgroundClip="unset"
-            buttonWebkitTextFillColor="unset"
-          />
+        <div className={styles.thirdCardWrapper}>
+          <div className={styles.thirdCardContainer}>
+            <Card
+              propFlex="unset"
+              propAlignSelf="unset"
+              propWidth="354px"
+              propMarginLeft="unset"
+              propMarginBottom="unset"
+              propHeight="unset"
+              propPadding="unset"
+              propHeight1="unset"
+              propMinWidth="162px"
+              propPadding1="unset"
+              propAlignSelf1="unset"
+              titleGoesHere="INVENTORY"
+              propAlignSelf2="stretch"
+              propFlex1="unset"
+              secondaryText="Document every asset"
+              propHeight2="unset"
+              propDisplay="unset"
+              propAlignSelf3="stretch"
+              rectangle18="/rectangle-18-5@2x.png"
+              propFlex2="unset"
+              propFlex3="unset"
+              loremIpsumDolorSitAmetConsecte="Efficiently manage and track all medical equipment, ensuring readiness, proper maintenance scheduling, and compliance with asset management protocols at your Hospital."
+              propAlignSelf4="unset"
+              button="Edit inventory"
+              commonButtonBoxShadow="unset"
+              commonButtonBackground="unset"
+              commonButtonPadding="12px"
+              commonButtonWidth="202px"
+              commonButtonFilter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+              buttonColor="unset"
+              buttonMinWidth="unset"
+              buttonFlex="1"
+              buttonBackground="linear-gradient(#2eff1b, #2eff1b), linear-gradient(#2335fd, #2335fd), #2335fd"
+              buttonWebkitBackgroundClip="unset"
+              buttonWebkitTextFillColor="unset"
+              titleTextFlex="1"
+              titleTextWidth="unset"
+              card8MinWidth="unset"
+              headerFlexWrap="unset"
+              titleGoesHereHeight="unset"
+              titleGoesHereDisplay="unset"
+              bottomHeight="unset"
+              card8Overflow="hidden"
+            />
+            <div className={styles.duplicateTitle}>
+              <Card
+                titleGoesHere="REPORTS"
+                secondaryText="Generate reports"
+                rectangle18="/rectangle-18-6@2x.png"
+                loremIpsumDolorSitAmetConsecte="Create  reports on equipment status, maintenance activities, and fault resolutions, providing valuable insights for decision-making, compliance, and improving hospital operations."
+                button="Generate report"
+                commonButtonBoxShadow="unset"
+                commonButtonBackground="unset"
+                commonButtonPadding="12px"
+                commonButtonWidth="unset"
+                commonButtonFilter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+                buttonColor="unset"
+                buttonMinWidth="unset"
+                buttonFlex="unset"
+                buttonBackground="linear-gradient(#2eff1b, #2eff1b), linear-gradient(#2335fd, #2335fd), #2335fd"
+                buttonWebkitBackgroundClip="unset"
+                buttonWebkitTextFillColor="unset"
+              />
+            </div>
+          </div>
         </div>
       </footer>
     </div>

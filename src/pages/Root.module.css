@@ -1,31 +1,22 @@
 .webLeftImage {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
+  width: 533px;
+  margin: 0 !important;
+  position: absolute;
+  top: 867px;
+  left: 64px;
   max-height: 100%;
+  overflow: hidden;
   object-fit: cover;
 }
-.imageContainer,
-.moreAboutContainer {
+.aboutSecWrapper {
+  align-self: stretch;
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 0 5px;
   box-sizing: border-box;
   max-width: 100%;
-}
-.imageContainer {
-  height: 887px;
-  width: 533px;
-  flex-direction: column;
-  padding: 7px 0 0;
-  min-width: 533px;
-}
-.moreAboutContainer {
-  align-self: stretch;
-  flex-direction: row;
-  padding: 0 5px;
 }
 .c {
   letter-spacing: 0.16em;
@@ -51,70 +42,33 @@
   align-items: flex-start;
 }
 .aboutHeader,
-.featureContent,
-.moreAboutContainerParent {
+.aboutText2Wrapper,
+.frameParent {
   display: flex;
   justify-content: flex-start;
   max-width: 100%;
 }
-.featureContent {
+.aboutText2Wrapper {
   align-self: stretch;
   flex-direction: row;
   align-items: flex-start;
   padding: 0 var(--padding-4xs);
   box-sizing: border-box;
 }
-.moreAboutContainerParent {
+.frameParent {
   flex: 1;
   flex-direction: column;
   align-items: flex-end;
   gap: 38px;
-  min-width: 419px;
 }
-.aboutInfoContainer {
-  flex: 1;
+.lowerContent {
+  width: 772px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: 135px;
-}
-.aboutContent,
-.aboutInfoContainer,
-.cardListColumnOne {
   align-items: flex-start;
-  max-width: 100%;
-}
-.aboutContent {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 0 var(--padding-45xl);
   box-sizing: border-box;
-}
-.cardListColumnOne {
-  width: 1440px;
-  flex-direction: column;
-  gap: 69px;
-  flex-shrink: 0;
-  text-align: justify;
-  font-size: var(--font-size-21xl);
-  color: var(--color-black);
-  font-family: var(--font-rubik);
-}
-.card6Parent,
-.cardListColumnOne,
-.main {
-  display: flex;
-  justify-content: flex-start;
-}
-.card6Parent {
-  align-self: stretch;
-  flex-direction: row;
-  align-items: flex-end;
-  padding: 0 0 var(--padding-4xs);
-  box-sizing: border-box;
-  gap: var(--gap-69xl);
   max-width: 100%;
 }
 .main {
@@ -122,69 +76,39 @@
   position: relative;
   background-color: var(--color-white);
   overflow: hidden;
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gap-51xl);
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 69.5px;
   line-height: normal;
   letter-spacing: normal;
-}
-@media screen and (max-width: 1350px) {
-  .webLeftImage {
-    align-self: stretch;
-    width: auto;
-  }
-  .imageContainer {
-    flex: 1;
-  }
-  .aboutInfoContainer {
-    gap: var(--gap-48xl);
-    flex-wrap: wrap;
-  }
-  .card6Parent {
-    flex-wrap: wrap;
-  }
+  text-align: justify;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-rubik);
 }
 @media screen and (max-width: 800px) {
-  .imageContainer {
-    min-width: 100%;
-  }
   .healthcareTechnologyManagemeContainer {
     font-size: var(--font-size-13xl);
     line-height: 26px;
   }
-  .moreAboutContainerParent {
+  .frameParent {
     gap: 19px;
-    min-width: 100%;
   }
-  .aboutInfoContainer {
-    gap: var(--gap-15xl);
-  }
-  .aboutContent {
+  .lowerContent {
     padding-left: var(--padding-13xl);
     padding-right: var(--padding-13xl);
     box-sizing: border-box;
   }
-  .cardListColumnOne {
-    gap: var(--gap-15xl);
-  }
-  .card6Parent {
-    gap: var(--gap-25xl);
-  }
   .main {
-    gap: var(--gap-16xl);
+    gap: 35px;
   }
 }
 @media screen and (max-width: 450px) {
   .healthcareTechnologyManagemeContainer {
     font-size: var(--laptop-headline-small-size);
     line-height: 19px;
-  }
-  .aboutInfoContainer,
-  .cardListColumnOne {
-    gap: var(--gap-mid);
-  }
-  .card6Parent {
-    gap: var(--gap-3xl);
   }
   .main {
     gap: var(--gap-mid);

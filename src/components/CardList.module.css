@@ -1,89 +1,109 @@
-.aboutHeaderWrapper,
-.doubleCardContainer {
+.cardHeaderContainer,
+.cardItems {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   max-width: 100%;
 }
-.aboutHeaderWrapper {
+.cardHeaderContainer {
   justify-content: center;
   padding: 0 0 0 var(--padding-11xs);
   box-sizing: border-box;
 }
-.doubleCardContainer {
+.cardItems {
   justify-content: space-between;
   gap: var(--gap-xl);
 }
-.doubleCardContainerParent {
+.cardItemsParent {
   flex: 1;
   flex-direction: column;
-  justify-content: flex-start;
   gap: var(--gap-69xl);
   min-width: 531px;
 }
-.card3Parent,
-.cardListContainer,
-.doubleCardContainerParent,
-.featuresGrid {
+.cardItemsParent,
+.duplicateTitle,
+.thirdCardContainer,
+.thirdCardWrapper {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   max-width: 100%;
 }
-.card3Parent {
-  width: 354px;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--gap-69xl);
-  min-width: 354px;
-}
-.cardListContainer,
-.featuresGrid {
+.duplicateTitle {
   align-self: stretch;
   flex-direction: row;
-  justify-content: center;
-  gap: var(--gap-122xl);
-  text-align: left;
-  font-size: var(--font-size-13xl);
+  padding: 0 0 0 var(--padding-base);
+  box-sizing: border-box;
+}
+.thirdCardContainer,
+.thirdCardWrapper {
+  flex-direction: column;
+}
+.thirdCardContainer {
+  align-self: stretch;
+  gap: var(--gap-69xl);
+}
+.thirdCardWrapper {
+  width: 370px;
+  padding: var(--padding-base) 0 0;
+  box-sizing: border-box;
+  min-width: 370px;
+}
+.cardListWrapper,
+.featuresGrid {
+  display: flex;
+  max-width: 100%;
   color: var(--color-white);
   font-family: var(--font-rubik);
 }
+.cardListWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-106xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+}
 .featuresGrid {
+  width: 1440px;
   background-color: var(--color-midnightblue);
   overflow: hidden;
+  flex-shrink: 0;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  padding: 0 var(--padding-45xl) var(--padding-13xl);
+  padding: 0 var(--padding-45xl) var(--padding-base);
   box-sizing: border-box;
   gap: var(--gap-48xl);
   text-align: center;
   font-size: var(--font-size-45xl);
 }
 @media screen and (max-width: 1350px) {
-  .card3Parent {
+  .thirdCardWrapper {
     flex: 1;
   }
-  .cardListContainer {
-    gap: var(--gap-51xl);
+  .cardListWrapper {
+    gap: var(--gap-43xl);
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 1125px) {
-  .doubleCardContainer {
+  .cardItems {
     flex-wrap: wrap;
   }
-  .doubleCardContainerParent {
+  .cardItemsParent {
     gap: var(--gap-25xl);
   }
 }
 @media screen and (max-width: 800px) {
-  .card3Parent,
-  .doubleCardContainerParent {
+  .cardItemsParent,
+  .thirdCardWrapper {
     min-width: 100%;
   }
-  .cardListContainer {
-    gap: var(--gap-16xl);
+  .cardListWrapper {
+    gap: var(--gap-12xl);
   }
   .featuresGrid {
     gap: var(--gap-14xl);
@@ -93,14 +113,14 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .doubleCardContainerParent {
+  .cardItemsParent {
     gap: var(--gap-3xl);
   }
-  .card3Parent {
+  .thirdCardContainer {
     gap: var(--gap-25xl);
   }
-  .cardListContainer {
-    gap: var(--gap-lg);
+  .cardListWrapper {
+    gap: var(--gap-base);
   }
   .featuresGrid {
     gap: var(--gap-mid);

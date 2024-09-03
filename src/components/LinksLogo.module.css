@@ -36,47 +36,39 @@
   padding: var(--padding-5xs) 0;
   box-sizing: border-box;
 }
-.login,
 .register {
   text-decoration: none;
   height: 0;
   position: relative;
   color: inherit;
-}
-.register {
-  width: 55px;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.login {
   display: inline-block;
-  min-width: 37px;
+  min-width: 55px;
 }
-.homeLink3 {
+.homeLink2 {
+  display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   padding: var(--padding-5xs) var(--padding-11xs);
 }
 .contact,
-.homeLink3,
-.homeLink4 {
-  display: flex;
-  align-items: center;
-}
-.contact {
+.login {
   text-decoration: none;
-  width: 53px;
   height: 0;
   position: relative;
   color: inherit;
+  display: inline-block;
+  min-width: 37px;
+}
+.contact {
+  min-width: 53px;
 }
 .homeLink4 {
-  width: 41.6px;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: var(--padding-5xs) 0;
-  box-sizing: border-box;
+  padding: var(--padding-5xs) var(--padding-10xs);
 }
 .searchIcon {
   height: 16px;
@@ -109,7 +101,7 @@
   max-width: 100%;
 }
 .headerLinks {
-  width: 344px;
+  width: 380.8px;
   overflow: hidden;
   flex-shrink: 0;
   flex-direction: column;
@@ -117,10 +109,12 @@
   justify-content: center;
 }
 .linksLogo {
-  align-self: stretch;
+  width: 1332px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
   top: 0;
   z-index: 99;
   position: sticky;
@@ -129,4 +123,12 @@
   font-size: var(--font-size-sm);
   color: var(--color-white);
   font-family: var(--font-rubik);
+}
+@media screen and (max-width: 450px) {
+  .links {
+    display: none;
+  }
+  .headerLinks {
+    width: 0;
+  }
 }
