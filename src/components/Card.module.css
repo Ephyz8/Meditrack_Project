@@ -25,7 +25,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--gap-5xs);
-  min-width: 162px;
+  min-width: 206px;
 }
 .header {
   align-self: stretch;
@@ -34,24 +34,33 @@
   padding: var(--padding-base);
   gap: var(--gap-13xl);
 }
+.card8Child,
+.loremIpsumDolor {
+  position: relative;
+  max-width: 100%;
+}
 .card8Child {
   align-self: stretch;
   height: 194px;
-  position: relative;
-  max-width: 100%;
   overflow: hidden;
   flex-shrink: 0;
   object-fit: cover;
 }
 .loremIpsumDolor {
   flex: 1;
-  position: relative;
   line-height: 20px;
   white-space: pre-wrap;
+  display: inline-block;
+}
+.bottom,
+.bottomText,
+.card8 {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .bottomText {
   align-self: stretch;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -59,21 +68,22 @@
 }
 .bottom,
 .card8 {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 .bottom {
   align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: var(--padding-base);
   gap: var(--gap-5xl);
+  text-align: center;
   font-size: var(--font-size-xl);
   font-family: var(--laptop-headline-small);
 }
 .card8 {
-  flex: 1;
-  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) 0;
   z-index: 1;
   text-align: left;
   font-size: var(--font-size-13xl);

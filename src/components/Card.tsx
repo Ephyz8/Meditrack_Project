@@ -49,6 +49,9 @@ export type CardType = {
   titleGoesHereDisplay?: CSSProperties["display"];
   bottomHeight?: CSSProperties["height"];
   card8Overflow?: CSSProperties["overflow"];
+  rectangleIconHeight?: CSSProperties["height"];
+  loremIpsumDolorTextAlign?: CSSProperties["textAlign"];
+  loremIpsumDolorDisplay?: CSSProperties["display"];
 };
 
 const Card: FunctionComponent<CardType> = ({
@@ -96,6 +99,9 @@ const Card: FunctionComponent<CardType> = ({
   titleGoesHereDisplay,
   bottomHeight,
   card8Overflow,
+  rectangleIconHeight,
+  loremIpsumDolorTextAlign,
+  loremIpsumDolorDisplay,
 }) => {
   const card8Style: CSSProperties = useMemo(() => {
     return {
@@ -177,8 +183,16 @@ const Card: FunctionComponent<CardType> = ({
   const loremIpsumDolorStyle: CSSProperties = useMemo(() => {
     return {
       alignSelf: propAlignSelf4,
+      textAlign: loremIpsumDolorTextAlign,
+      display: loremIpsumDolorDisplay,
     };
-  }, [propAlignSelf4]);
+  }, [propAlignSelf4, loremIpsumDolorTextAlign, loremIpsumDolorDisplay]);
+
+  const rectangleIconStyle: CSSProperties = useMemo(() => {
+    return {
+      height: rectangleIconHeight,
+    };
+  }, [rectangleIconHeight]);
 
   return (
     <div className={[styles.card8, className].join(" ")} style={card8Style}>
@@ -203,6 +217,7 @@ const Card: FunctionComponent<CardType> = ({
         loading="lazy"
         alt=""
         src={rectangle18}
+        style={rectangleIconStyle}
       />
       <div className={styles.bottom} style={bottomStyle}>
         <div className={styles.bottomText} style={bottomTextStyle}>

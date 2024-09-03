@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Root1 from "./pages/Root";
-import Root from "./pages/Root";
+import Root from "./pages/Root1";
 
 function App() {
   const action = useNavigationType();

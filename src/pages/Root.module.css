@@ -8,69 +8,6 @@
   overflow: hidden;
   object-fit: cover;
 }
-.aboutSecWrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 5px;
-  box-sizing: border-box;
-  max-width: 100%;
-}
-.c {
-  letter-spacing: 0.16em;
-}
-.healthcareTechnology {
-  margin: 0;
-}
-.healthcareTechnologyManagemeContainer {
-  margin: 0;
-  flex: 1;
-  position: relative;
-  font-size: inherit;
-  line-height: 32px;
-  font-weight: 700;
-  font-family: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-.aboutHeader {
-  align-self: stretch;
-  background-color: var(--color-white);
-  flex-direction: row;
-  align-items: flex-start;
-}
-.aboutHeader,
-.aboutText2Wrapper,
-.frameParent {
-  display: flex;
-  justify-content: flex-start;
-  max-width: 100%;
-}
-.aboutText2Wrapper {
-  align-self: stretch;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0 var(--padding-4xs);
-  box-sizing: border-box;
-}
-.frameParent {
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 38px;
-}
-.lowerContent {
-  width: 772px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 var(--padding-45xl);
-  box-sizing: border-box;
-  max-width: 100%;
-}
 .main {
   width: 100%;
   position: relative;
@@ -83,33 +20,13 @@
   gap: 69.5px;
   line-height: normal;
   letter-spacing: normal;
-  text-align: justify;
-  font-size: var(--font-size-21xl);
-  color: var(--color-black);
-  font-family: var(--font-rubik);
 }
 @media screen and (max-width: 800px) {
-  .healthcareTechnologyManagemeContainer {
-    font-size: var(--font-size-13xl);
-    line-height: 26px;
-  }
-  .frameParent {
-    gap: 19px;
-  }
-  .lowerContent {
-    padding-left: var(--padding-13xl);
-    padding-right: var(--padding-13xl);
-    box-sizing: border-box;
-  }
   .main {
     gap: 35px;
   }
 }
 @media screen and (max-width: 450px) {
-  .healthcareTechnologyManagemeContainer {
-    font-size: var(--laptop-headline-small-size);
-    line-height: 19px;
-  }
   .main {
     gap: var(--gap-mid);
   }

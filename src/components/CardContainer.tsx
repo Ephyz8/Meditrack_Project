@@ -56,6 +56,9 @@ const CardContainer: FunctionComponent<CardContainerType> = ({
         titleGoesHereDisplay="unset"
         bottomHeight="unset"
         card8Overflow="unset"
+        rectangleIconHeight="194px"
+        loremIpsumDolorTextAlign="left"
+        loremIpsumDolorDisplay="unset"
       />
       <CardList />
     </section>
