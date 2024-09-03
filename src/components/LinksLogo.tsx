@@ -209,8 +209,8 @@ const LinksLogo: FunctionComponent<LinksLogoType> = ({
               About
             </a>
           </div>
-          <div className={styles.homeLink2} style={homeLink4Style}>
-            <a className={styles.register} style={registerStyle}>
+          <div className={styles.homeLink1}>
+            <a className={styles.register} style={homeStyle}>
               Register
             </a>
           </div>
