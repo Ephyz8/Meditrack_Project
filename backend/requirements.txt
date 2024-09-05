@@ -1,6 +1,15 @@
-Django>=3.2
+Django
 djangorestframework
 celery
 redis
 pillow  # For handling image uploads
 psycopg2-binary  # For PostgreSQL database
+django-cors-headers
+PyJWT
+pytz
+tzdata
+django-environ
+django-redis
+django-celery-beat
+django-celery-results
+asgiref
