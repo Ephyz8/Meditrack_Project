@@ -8,45 +8,31 @@ import logging
 logger = logging.getLogger(__name__)
 
 @shared_task
-def send_job_card_report_email(job_card_id):
+def send_job_card_report_email(subject, message, recipient_list):
     """
-    Send an email with the details of a job card to the user who reported it.
-
-    :param job_card_id: The ID of the job card to be included in the email.
+    Send an email with the provided subject and message to the recipient list.
     """
     try:
-        job_card = JobCard.objects.get(id=job_card_id)
-        user_email = job_card.reported_by  # Ensure this is the correct field for the user's email
-        subject = f"Job Card Report - {job_card.job_number}"
-        message = f"""
-        Job Number: {job_card.job_number}
-        Equipment Name: {job_card.equipment_name}
-        Reporting Date: {job_card.reporting_date}
-        Fault Reported: {job_card.fault_reported}
-        Diagnosis: {job_card.diagnosis}
-        Action Done: {job_card.action_done}
-        Required Spare Parts: {job_card.required_spare_parts}
-        """
         send_mail(
             subject,
             message,
             settings.DEFAULT_FROM_EMAIL,
-            [user_email],
+            recipient_list,
             fail_silently=False,
         )
-        logger.info(f"Job card report email sent successfully to {user_email}.")
-    except JobCard.DoesNotExist:
-        logger.error(f"JobCard with ID {job_card_id} does not exist.")
+        logger.info(f"Email sent successfully to {recipient_list}.")
     except Exception as e:
-        logger.error(f"Error sending job card report email: {e}")
+        logger.error(f"Error sending email: {e}")
+
 
 @shared_task
-def generate_job_card_summary_report(start_date_str, end_date_str):
+def generate_job_card_summary_report(start_date_str, end_date_str, recipient_list=None):
     """
     Generate and email a summary report of job cards within a specified date range.
 
     :param start_date_str: The start date of the report period (ISO format string).
     :param end_date_str: The end date of the report period (ISO format string).
+    :param recipient_list: List of email addresses to send the report to.
     """
     try:
         start_date = parse_date(start_date_str)
@@ -55,27 +41,26 @@ def generate_job_card_summary_report(start_date_str, end_date_str):
         if not start_date or not end_date:
             raise ValueError("Invalid date format provided.")
 
+        # Fetch the summary report data
         report_data = JobCard.generate_summary_report(start_date, end_date)
-        
-        # Convert report_data to a string format suitable for email
+
+        # Convert report data to a string format suitable for email
         report_summary = "\n".join(
             [f"Status: {entry['status']}, Count: {entry['count']}" for entry in report_data]
         )
-        
+
+        # Email content
         subject = "Job Card Summary Report"
         message = f"Summary report from {start_date} to {end_date}:\n\n{report_summary}"
+
+        # Determine recipients
+        if recipient_list is None:
+            recipient_list = [settings.DEFAULT_FROM_EMAIL]  # Default recipient for testing
+
+        # Send the email directly
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, recipient_list, fail_silently=False)
         
-        # Assuming you want to send this summary to a fixed email address or multiple addresses
-        recipient_list = ['recipient@example.com']  # Replace with actual recipient(s)
-        
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            recipient_list,
-            fail_silently=False,
-        )
-        logger.info("Job card summary report email sent successfully.")
+        logger.info(f"Job card summary report sent to {recipient_list}.")
     except ValueError as ve:
         logger.error(f"ValueError: {ve}")
     except Exception as e:

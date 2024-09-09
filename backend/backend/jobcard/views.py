@@ -1,13 +1,19 @@
+from rest_framework import generics
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.core.mail import send_mail
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from .models import JobCard
 from .serializers import JobCardSerializer
-from .tasks import send_job_card_report_email
-from .utils import format_job_card_details, get_next_request_number
+from .tasks import send_job_card_report_email, generate_job_card_summary_report
+from .utils import format_job_card_details
+
+class JobCardListView(generics.ListCreateAPIView):
+    """
+    List all job cards or create a new job card.
+    """
+    queryset = JobCard.objects.all()
+    serializer_class = JobCardSerializer
 
 class JobCardViewSet(viewsets.ViewSet):
     """
@@ -28,7 +34,13 @@ class JobCardViewSet(viewsets.ViewSet):
         """
         serializer = JobCardSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            job_card = serializer.save()
+            # Send an email notification for the new job card
+            send_job_card_report_email.delay(
+                subject=f"New Job Card Created - {job_card.job_number}",
+                message=format_job_card_details(job_card),
+                recipient_list=[job_card.user.email]  # Ensure job_card.user.email is correctly set
+            )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -82,13 +94,8 @@ class JobCardViewSet(viewsets.ViewSet):
             return Response({"detail": "Both start_date and end_date are required."}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            report_data = JobCard.generate_summary_report(start_date, end_date)
-            # Format report for email
-            email_subject = "Job Card Summary Report"
-            email_message = "Summary Report:\n\n" + str(report_data)
-            recipient_list = [settings.DEFAULT_FROM_EMAIL]  # Use configured email for testing
-            send_job_card_report_email.delay(email_subject, email_message, recipient_list)
-
-            return Response({"detail": "Summary report generated and email sent."}, status=status.HTTP_200_OK)
+            # Call the Celery task to generate the report and send it via email
+            generate_job_card_summary_report.delay(start_date, end_date)
+            return Response({"detail": "Summary report is being generated and will be emailed shortly."}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

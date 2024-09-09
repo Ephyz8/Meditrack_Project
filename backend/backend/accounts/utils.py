@@ -28,7 +28,7 @@ def send_otp_email(email, otp_code):
     )
     
     # Create an instance of the OneTimePassword model
-    OneTimePassword.objects.create(user=user, code=otp_code)
+    OneTimePassword.objects.create(user=user, otp=otp_code)
     
     # Send the email
     subject = 'Your OTP Code'
@@ -38,6 +38,10 @@ def send_otp_email(email, otp_code):
     try:
         email_message.send(fail_silently=False)  # Set to False to raise an error on failure
     except Exception as e:
+        # Log the error to help with debugging
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Failed to send email to {email}: {e}")
         return f"Failed to send email: {e}"
     
     return "OTP email sent successfully."

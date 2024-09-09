@@ -1,1 +1,3 @@
 // source venv/bin/activate
+
+// celery -A backend worker --loglevel=info

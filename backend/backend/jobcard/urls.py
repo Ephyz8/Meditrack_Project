@@ -1,18 +1,11 @@
-from django.urls import path
-from .views import (
-    JobCardListView,
-    JobCardDetailView,
-    JobCardCreateView,
-    JobCardUpdateView,
-    JobCardDeleteView
-)
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import JobCardListView, JobCardViewSet
 
-app_name = 'jobcard'
+router = DefaultRouter()
+router.register(r'job-cards', JobCardViewSet, basename='jobcard')
 
 urlpatterns = [
-    path('', JobCardListView.as_view(), name='job_card_list'),
-    path('job_card/<int:pk>/', JobCardDetailView.as_view(), name='job_card_detail'),
-    path('job_card/new/', JobCardCreateView.as_view(), name='job_card_create'),
-    path('job_card/<int:pk>/edit/', JobCardUpdateView.as_view(), name='job_card_edit'),
-    path('job_card/<int:pk>/delete/', JobCardDeleteView.as_view(), name='job_card_delete'),
+    path('job-cards/', JobCardListView.as_view(), name='jobcard-list'),
+    path('', include(router.urls)),
 ]
