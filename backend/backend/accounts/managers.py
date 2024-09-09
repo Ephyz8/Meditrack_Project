@@ -1,7 +1,8 @@
 from django.contrib.auth.models import BaseUserManager
-from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+from django.utils.translation import gettext_lazy as _
+
 
 class UserManager(BaseUserManager):
     
@@ -31,6 +32,7 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_verified', True)
         
+    
         if extra_fields.get('is_staff') is not True:
             raise ValueError(_("Superuser must have is_staff=True"))
         
@@ -40,7 +42,7 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_verified') is not True:
             raise ValueError(_("Superuser must have is_verified=True"))
         
-         user = self.create_user(
+        user = self.create_user(
              email, first_name, last_name, password, **extra_fields
         )
         user.save(using=self._db)

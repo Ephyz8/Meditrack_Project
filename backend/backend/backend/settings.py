@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-import envrion
 from pathlib import Path
+import environ 
 
-env = envrion.Env(
+env = environ.Env(
     # set casting. default value
     DEBUG=(bool, False)
 )
@@ -21,12 +21,15 @@ env = envrion.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-envrion.Env.read_env(BASE_DIR / '.env')
+environ.Env.read_env(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 'django-insecure-egum9k@1j8$a-9a3elvjl&(mz(g(kxf7av*1s@l-%(99d7n6j=' # env('SECRET_KEY')
+
 SECRET_KEY = env('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
     'daily_routine',
     'faults',
@@ -90,15 +94,19 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ephy',
-        'USER': 'ephy',
-        'PASSWORD': 'ephy',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env('DB_NAME', default='ephy'),
+        'USER': env('DB_USER', default='ephy'),
+        'PASSWORD': env('DB_PASSWORD', default='ephy'),
+        'HOST': env('DB_HOST', default='localhost'),
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
 
-AUTH_USER_MODEL = 'accounts.User'
+
+AUTH_USER_MODEL='accounts.User'
+
+ALLOWED_HOSTS = []
+
 
 # Celery Configuration
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
@@ -148,3 +156,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER=env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'ziwoyaephraim@gmail.com'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
