@@ -1,8 +1,14 @@
 from rest_framework import serializers
 from .models import User  # Import custom User model
 from django.contrib.auth import authenticate
-from rest_framework.exceptions import AuthenticationFailed
-
+from rest_framework.exceptions import AuthenticationFailed, ValidationError
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import smart_bytes, force_str, DjangoUnicodeDecodeError
+from .utils import send_normal_email
+from django.urls import reverse
+from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
@@ -53,17 +59,19 @@ class LoginSerializer(serializers.ModelSerializer):
         password = attrs.get('password', '')
         request = self.context.get('request')
         user = authenticate(request=request, email=email, password=password)
-        if not user:
-            raise AuthenticationFailed({'error': 'Invalid credentials, please try again'})
+
+        if user is None:
+            raise AuthenticationFailed({'error': 'Invalid email or password.'})
+
+        if not user.is_active:
+            raise AuthenticationFailed({'error': 'This account is inactive.'})
+
         if not user.is_verified:
-            raise AuthenticationFailed({'error': 'Email is not verified'})
+            raise AuthenticationFailed({'error': 'Email is not verified.'})
 
-        # `user.tokens()` generates JWT tokens
         user_tokens = user.tokens()
-
         return {
             'email': user.email,
-            #'full_name': user.get_full_name(),
             'access_token': str(user_tokens.get('access')),
             'refresh_token': str(user_tokens.get('refresh'))
         }
@@ -130,7 +138,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
             raise AuthenticationFailed('The reset link is invalid or has expired.')
 
 
-class LogoutSerializer(serializers.Serializer):
+class LogoutUserSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
     default_error_messages = {
