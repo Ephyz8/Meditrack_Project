@@ -1,0 +1,156 @@
+.meditrack1 {
+  margin: 0;
+}
+.meditrackTxt {
+  line-break: anywhere;
+}
+.mainHeader,
+.meditrack {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+.meditrack {
+  margin: 0;
+  height: 120px;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 60px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.mainHeader {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: var(--font-size-77xl);
+}
+.heroImageIcon {
+  height: 70px;
+  width: 6px;
+  position: relative;
+}
+.dawnOfHope {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 40px;
+  font-weight: 600;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.dawnOfHopeWrapper,
+.heroImageIconParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.dawnOfHopeWrapper {
+  flex: 1;
+  padding: var(--padding-6xs-5) var(--padding-4xs);
+  min-width: 354px;
+}
+.heroImageIconParent {
+  align-self: stretch;
+  padding: var(--padding-base) var(--padding-smi) var(--padding-base)
+    var(--padding-26xl);
+  gap: var(--gap-base);
+  font-size: var(--font-size-29xl);
+}
+.designedToManage {
+  flex: 1;
+  position: relative;
+  line-height: 30px;
+  font-weight: 500;
+  display: inline-block;
+  max-width: 100%;
+}
+.textAuto {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  text-align: justify;
+  font-family: var(--laptop-headline-small);
+}
+.button {
+  position: relative;
+  line-height: 20px;
+}
+.commonButton,
+.webLeftText {
+  display: flex;
+  justify-content: center;
+}
+.commonButton {
+  box-shadow: var(--dp-penumbra);
+  border-radius: var(--br-xl);
+  background: linear-gradient(#2335fd, #2335fd),
+    linear-gradient(#2335fd, #2335fd), #2335fd;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-2xs-5) var(--padding-17xl);
+  cursor: pointer;
+  color: var(--color-ghostwhite);
+  font-family: var(--laptop-headline-small);
+}
+.webLeftText {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-15xl-5) 0;
+  box-sizing: border-box;
+  gap: var(--gap-13xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--laptop-headline-small-size);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 800px) {
+  .meditrack {
+    font-size: var(--font-size-29xl);
+    line-height: 36px;
+  }
+  .heroImageIcon {
+    width: 100%;
+    height: 6px;
+  }
+  .dawnOfHope {
+    font-size: var(--font-size-19xl);
+    line-height: 32px;
+  }
+  .dawnOfHopeWrapper {
+    min-width: 100%;
+  }
+  .heroImageIconParent {
+    flex-wrap: wrap;
+    padding-left: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .webLeftText {
+    gap: var(--gap-base);
+    padding-top: var(--padding-3xl);
+    padding-bottom: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .dawnOfHope,
+  .meditrack {
+    font-size: var(--font-size-10xl);
+    line-height: 24px;
+  }
+  .designedToManage {
+    font-size: var(--font-size-lgi);
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,185 @@
+.frameChild,
+.rectangleWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.rectangleWrapper {
+  top: 40px;
+  left: 252px;
+  width: 598px;
+  height: 440px;
+}
+.authBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 45px 45px rgba(0, 0, 0, 0.25),
+    40.7px -40.7px 40.7px rgba(165, 165, 165, 0.1) inset,
+    -40.7px 40.7px 40.7px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(81.4px);
+  border-radius: var(--br-36xl);
+  background-color: var(--color-gainsboro);
+  border: 1px solid var(--color-darkgreen);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.login {
+  margin: 0;
+  position: absolute;
+  top: 18px;
+  left: 489px;
+  font-size: var(--font-size-29xl);
+  font-weight: 800;
+  font-family: var(--font-poppins);
+  background: linear-gradient(180deg, #443eef, #5de951);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+  display: inline-block;
+  width: 136px;
+  height: 72px;
+  z-index: 2;
+}
+.frameItem,
+.separator {
+  position: absolute;
+  left: 262px;
+  z-index: 3;
+}
+.separator {
+  top: 160px;
+  background-color: var(--color-darkolivegreen);
+  border-top: 3px solid var(--color-midnightblue);
+  box-sizing: border-box;
+  width: 573px;
+  height: 3px;
+}
+.frameItem {
+  top: 287.9px;
+  width: 570px;
+  height: 0.1px;
+  object-fit: contain;
+}
+.createAnAccount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: var(--laptop-headline-small-size);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-lime);
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.accountOptions {
+  position: absolute;
+  top: 432px;
+  left: 252px;
+  width: 229px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 3;
+}
+.forgetPassword {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: var(--laptop-headline-small-size);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-lime);
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.accountOptions1 {
+  position: absolute;
+  top: 432px;
+  left: 597px;
+  width: 205px;
+  height: 36px;
+}
+.inputBackground {
+  align-self: stretch;
+  height: 48px;
+  position: relative;
+  border-radius: var(--br-26xl);
+  background: linear-gradient(0deg, #080648 2.3%, #1b9910);
+  z-index: 2;
+}
+.inputContainer {
+  width: 304px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) 0 0;
+  box-sizing: border-box;
+}
+.login1 {
+  position: relative;
+  font-size: var(--font-size-17xl);
+  font-weight: 800;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  z-index: 3;
+  margin-left: -196px;
+}
+.loginForm {
+  position: absolute;
+  top: 354px;
+  left: 388px;
+  width: 304px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.vectorIcon,
+.vectorIcon1 {
+  position: absolute;
+  top: 125px;
+  left: 799px;
+  width: 18px;
+  height: 14px;
+  z-index: 2;
+}
+.vectorIcon1 {
+  top: 256px;
+  left: 808px;
+  width: 14px;
+  height: 16px;
+}
+.frameParent {
+  margin: 0;
+  position: absolute;
+  top: 248px;
+  left: 489px;
+  width: 917px;
+  height: 512px;
+}
+@media screen and (max-width: 767px) {
+  .login {
+    font-size: var(--font-size-19xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .login {
+    font-size: var(--font-size-10xl);
+  }
+  .createAnAccount,
+  .forgetPassword {
+    font-size: var(--font-size-lgi);
+  }
+}

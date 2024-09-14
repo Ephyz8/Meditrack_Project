@@ -1,0 +1,114 @@
+.headerChild {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.secondaryText,
+.titleGoesHere {
+  align-self: stretch;
+  position: relative;
+}
+.secondaryText {
+  font-size: var(--laptop-headline-small-size);
+  line-height: 24px;
+  font-family: var(--laptop-headline-small);
+}
+.header,
+.titleText {
+  display: flex;
+  justify-content: center;
+}
+.titleText {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5xs);
+  min-width: 206px;
+}
+.header {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-base);
+  gap: var(--gap-13xl);
+}
+.card8Child,
+.loremIpsumDolor {
+  position: relative;
+  max-width: 100%;
+}
+.card8Child {
+  align-self: stretch;
+  height: 194px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.loremIpsumDolor {
+  flex: 1;
+  line-height: 20px;
+  white-space: pre-wrap;
+  display: inline-block;
+}
+.bottom,
+.bottomText,
+.card8 {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.bottomText {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-base);
+}
+.bottom,
+.card8 {
+  flex-direction: column;
+}
+.bottom {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-base);
+  gap: var(--gap-5xl);
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-family: var(--laptop-headline-small);
+}
+.card8 {
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) 0;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 800px) {
+  .titleGoesHere {
+    font-size: var(--font-size-7xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .secondaryText,
+  .titleGoesHere {
+    font-size: var(--font-size-lgi);
+  }
+  .secondaryText {
+    line-height: 19px;
+  }
+  .header {
+    gap: var(--gap-base);
+    flex-wrap: wrap;
+  }
+  .loremIpsumDolor {
+    font-size: var(--font-size-base);
+    line-height: 16px;
+  }
+}

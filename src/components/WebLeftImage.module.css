@@ -1,0 +1,11 @@
+.webLeftImage {
+  width: 291px;
+  height: 435px;
+  overflow: hidden;
+  background-image: url(/public/web-left-image1@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  line-height: normal;
+  letter-spacing: normal;
+}

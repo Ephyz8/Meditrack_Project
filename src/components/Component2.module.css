@@ -1,0 +1,40 @@
+.component2Child {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.email {
+  position: absolute;
+  height: 57.69%;
+  width: 73.7%;
+  top: 19.95%;
+  left: 4.61%;
+  font-weight: 500;
+  display: inline-block;
+  z-index: 1;
+}
+.component2 {
+  width: 238.8px;
+  height: 41.6px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: 130.4px;
+  left: 16px;
+  z-index: 3;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 450px) {
+  .email {
+    font-size: var(--font-size-base);
+  }
+}

@@ -1,0 +1,100 @@
+.content {
+  width: 644px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-3xs) var(--padding-4xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  z-index: 1;
+}
+.unsplash1csavdwfiewIcon {
+  position: absolute;
+  top: calc(50% - 241px);
+  left: calc(50% - 316px);
+  width: 588px;
+  height: 502px;
+  object-fit: cover;
+}
+.mainPic {
+  align-self: stretch;
+  height: 496px;
+  position: relative;
+  z-index: 1;
+}
+.mainPicWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-smi);
+  box-sizing: border-box;
+  min-width: 460px;
+  max-width: 100%;
+}
+.contentParent,
+.featureList,
+.linksLogoParent {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.contentParent {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--gap-xs);
+}
+.featureList,
+.linksLogoParent {
+  align-items: flex-start;
+}
+.linksLogoParent {
+  flex: 1;
+  background-color: var(--color-gray-100);
+  flex-direction: column;
+  padding: var(--padding-25xl) var(--padding-xs) 0 var(--padding-45xl);
+  box-sizing: border-box;
+  gap: var(--gap-46xl);
+}
+.featureList {
+  align-self: stretch;
+  flex-direction: row;
+  background-image: url(/public/feature-list@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: left;
+  font-size: var(--laptop-headline-small-size);
+  color: var(--color-white);
+  font-family: var(--font-rubik);
+}
+@media screen and (max-width: 1350px) {
+  .content {
+    flex: 1;
+  }
+  .contentParent {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .content,
+  .mainPicWrapper {
+    min-width: 100%;
+  }
+  .linksLogoParent {
+    gap: var(--gap-13xl);
+    padding-left: var(--padding-13xl);
+    padding-top: var(--padding-10xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .linksLogoParent {
+    gap: var(--gap-base);
+    padding-top: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

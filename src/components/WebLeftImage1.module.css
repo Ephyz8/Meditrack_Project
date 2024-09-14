@@ -1,0 +1,9 @@
+.webLeftImage {
+  width: 588px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 880px;
+  object-fit: cover;
+  line-height: normal;
+  letter-spacing: normal;
+}

@@ -1,0 +1,286 @@
+.emailFieldsChild {
+  width: 598px;
+  height: 440px;
+  position: relative;
+  display: none;
+  max-width: 100%;
+  z-index: 0;
+}
+.mailIcon {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.mailIcon1 {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.passwordField,
+.passwordInput {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.passwordInput {
+  justify-content: flex-start;
+  position: relative;
+}
+.passwordField {
+  justify-content: flex-end;
+  padding: 0 var(--padding-5xs);
+}
+.showPasswordIcon {
+  width: 14px;
+  height: 15px;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 11.3px;
+}
+.capsLockWarningIcon {
+  height: 15px;
+  width: 14px;
+  position: relative;
+}
+.capsLockIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-2xs);
+}
+.capsLockWarningChild {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  background-color: var(--color-darkolivegreen);
+  border-top: 3px solid var(--color-midnightblue);
+  box-sizing: border-box;
+  z-index: 2;
+}
+.capsLockWarning {
+  width: 624.3px;
+  height: 34.9px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-10xs);
+  box-sizing: border-box;
+  gap: var(--gap-base-9);
+  max-width: 100%;
+}
+.strengthCheckmarkIcon {
+  width: 15.3px;
+  height: 16.6px;
+  position: relative;
+}
+.strengthCheckmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-7xs);
+}
+.strengthBar,
+.strengthLevel {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.strengthLevel {
+  flex: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.strengthBar {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-2xs) 0 0;
+  box-sizing: border-box;
+}
+.strengthIndicatorChild {
+  width: 624.3px;
+  position: relative;
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  z-index: 1;
+}
+.strengthIndicator {
+  gap: var(--gap-2xs-5);
+}
+.passwordFields,
+.showPassword,
+.strengthIndicator {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.showPassword {
+  padding: var(--padding-45xl) 0 0;
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-base-1);
+}
+.passwordFields {
+  gap: var(--gap-33xl);
+}
+.emailFieldsItem {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+  z-index: 2;
+}
+.forgotPasswordLink {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.buttonBackground,
+.signup {
+  position: absolute;
+  margin: 0 !important;
+}
+.buttonBackground {
+  width: 100px;
+  height: 100px;
+  bottom: 27px;
+  left: 274px;
+  z-index: 2;
+}
+.signup {
+  text-decoration: none;
+  width: 192.8px;
+  top: -55.1px;
+  right: 212.5px;
+  font-size: var(--font-size-29xl);
+  font-weight: 800;
+  background: linear-gradient(180deg, #443eef, #5de951);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  z-index: 3;
+}
+.emailFieldsInner {
+  width: 627.3px;
+  height: 3px;
+  top: 58px;
+  right: 0.7px;
+  background-color: var(--color-darkolivegreen);
+  border-top: 3px solid var(--color-midnightblue);
+  box-sizing: border-box;
+}
+.buttonBorderIcon,
+.emailFieldsInner,
+.lineDiv {
+  position: absolute;
+  margin: 0 !important;
+  z-index: 3;
+}
+.lineDiv {
+  width: 627.3px;
+  height: 3px;
+  top: 130px;
+  right: 0.7px;
+  background-color: var(--color-darkolivegreen);
+  border-top: 3px solid var(--color-midnightblue);
+  box-sizing: border-box;
+}
+.buttonBorderIcon {
+  width: 624.3px;
+  height: 0.1px;
+  right: 3.7px;
+  bottom: 122.2px;
+  object-fit: contain;
+}
+.signupButton {
+  width: 333px;
+  height: 49.9px;
+  bottom: 49.8px;
+  left: 156.6px;
+  border-radius: var(--br-26xl);
+  background: linear-gradient(0deg, #080648 2.3%, #1b9910);
+  z-index: 3;
+}
+.signup1,
+.signupButton,
+.signupButtonIcon {
+  position: absolute;
+  margin: 0 !important;
+}
+.signup1 {
+  width: 151.1px;
+  right: 232.3px;
+  bottom: 49.9px;
+  font-size: var(--font-size-17xl);
+  font-weight: 800;
+  font-family: inherit;
+  color: var(--color-white);
+  display: inline-block;
+  z-index: 4;
+}
+.signupButtonIcon {
+  width: 15.3px;
+  height: 16.6px;
+  right: 14.7px;
+  bottom: 138.8px;
+  z-index: 3;
+}
+.emailFields {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xl-1) var(--padding-10xs) 0 var(--padding-mini);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-133xl-8);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--laptop-headline-small-size);
+  color: var(--color-lime);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 767px) {
+  .signup {
+    font-size: var(--font-size-19xl);
+  }
+  .signup1 {
+    font-size: var(--font-size-10xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .signup {
+    font-size: var(--font-size-10xl);
+  }
+  .signup1 {
+    font-size: var(--font-size-3xl);
+  }
+}
