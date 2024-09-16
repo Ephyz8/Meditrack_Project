@@ -1,0 +1,53 @@
+/* src/components/PPMTasks.module.css */
+.container {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #003366;
+  }
+  
+  .taskList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .taskItem {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+  
+  .taskItem:last-child {
+    border-bottom: none;
+  }
+  
+  .taskDate {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .taskDescription {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  .taskStatus {
+    font-style: italic;
+    color: #777;
+  }
+  
+  .loading {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .error {
+    font-size: 1.2rem;
+    color: #d9534f;
+  }
+  

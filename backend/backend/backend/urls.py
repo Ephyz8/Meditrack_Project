@@ -28,5 +28,3 @@ urlpatterns = [
     path('api/v1/jobcards/', include('jobcard.urls')),  # Include the jobcard app URLs
     path('', home_view, name='home'),  # Root URL pattern
 ]
-
-

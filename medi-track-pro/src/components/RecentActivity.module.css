@@ -1,0 +1,27 @@
+/* src/components/RecentActivity.module.css */
+
+.recentActivity ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recentActivity li {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .recentActivity p {
+    margin: 0;
+  }
+  
+  .recentActivity span {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
