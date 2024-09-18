@@ -65,6 +65,34 @@ class VerifyUserEmail(GenericAPIView):
         return Response({'message': 'Account email verified successfully'}, status=status.HTTP_200_OK)
 
 
+class ResendOTPView(GenericAPIView):
+    def post(self, request):
+        email = request.data.get('email')
+
+        if not email:
+            return Response({'message': 'Email is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response({'message': 'No user found with this email'}, status=status.HTTP_404_NOT_FOUND)
+
+        if user.is_verified:
+            return Response({'message': 'User is already verified'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Send a new OTP
+            send_otp_email_task.delay(user.email)
+        except Exception as e:
+            return Response({
+                'message': 'Failed to send OTP. Please try again later.'
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        return Response({
+            'message': f'A new OTP has been sent to {user.email}. Please check your email.'
+        }, status=status.HTTP_200_OK)
+
+
 class LoginUserView(GenericAPIView):
     serializer_class = LoginSerializer
 

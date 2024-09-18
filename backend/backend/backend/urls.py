@@ -24,7 +24,7 @@ def home_view(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/auth/', include('accounts.urls')),  # Include the accounts app URLs
-    path('api/v1/jobcards/', include('jobcard.urls')),  # Include the jobcard app URLs
+    path('api/v1/auth/', include('accounts.urls')),  # Route for accounts app URLs
+    path('api/v1/jobcards/', include('jobcard.urls')),  # Route for jobcard app URLs
     path('', home_view, name='home'),  # Root URL pattern
 ]

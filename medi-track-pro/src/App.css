@@ -84,7 +84,7 @@ h1, h2, h3, h4 {
 
 /* Button Styling */
 button {
-  background-color: #002d62;
+  background-color: #aecef3;
   color: white;
   border: none;
   padding: 0.7rem 1.5rem;
@@ -120,7 +120,7 @@ main {
 
 /* Hero Section */
 .hero {
-  background-image: url("/images/hero-background.jpg");
+  /* background-image: url("/images/hero-background.jpg"); */
   background-size: cover;
   background-position: center;
   color: white;

@@ -1,0 +1,79 @@
+.otpContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+  }
+  
+  .otpForm {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .otpTitle {
+    font-size: 2rem;
+    color: #1d3557;
+    margin-bottom: 20px;
+  }
+  
+  .instructions {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .verifyButton {
+    width: 100%;
+    padding: 15px;
+    background-color: #fca311;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .verifyButton:hover {
+    background-color: #e63946;
+  }
+  
+  .successText {
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .errorText {
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  .additionalLinks {
+    margin-top: 20px;
+  }
+  
+  .linkButton {
+    background: none;
+    border: none;
+    color: #457b9d;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .linkButton:hover {
+    color: #e63946;
+  }
+  

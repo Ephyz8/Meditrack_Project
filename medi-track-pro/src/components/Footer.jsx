@@ -28,7 +28,7 @@ const Footer = () => {
           <h2 className={styles.footerTitle}>Contact Us</h2>
           <p className={styles.footerText}>
             Email: <a href="mailto:support@meditrackpro.com" className={styles.footerLink}>support@meditrackpro.com</a><br />
-            Phone: <a href="tel:+123456789" className={styles.footerLink}>+123 456 789</a>
+            Phone: <a href="tel:+265 882 746 364" className={styles.footerLink}>+123 456 789</a>
           </p>
         </div>
       </div>

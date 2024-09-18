@@ -1,4 +1,3 @@
-// src/pages/LandingPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
@@ -12,10 +11,15 @@ const LandingPage = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>MediTrack Pro</h1>
           <p className={styles.heroSubheading}>Streamline medical equipment management with ease</p>
-          <Link to="/get-started">
+          <Link to="/Register">
             <Button className={styles.heroButton}>Get Started</Button>
           </Link>
         </div>
+        <img
+          src="https://images.unsplash.com/photo-1581091870679-1c2a36536229?crop=entropy&fit=crop&w=1500&h=800&q=80"
+          alt="Medical equipment in a hospital"
+          className={styles.heroBackground}
+        />
       </header>
 
       {/* Features Section */}
@@ -24,7 +28,7 @@ const LandingPage = () => {
         <div className={styles.featureList}>
           <div className={styles.featureItem}>
             <img
-              src="/images/inventory-icon.png"
+              src="https://images.unsplash.com/photo-1581091870682-a97e610f9475?crop=entropy&fit=crop&w=200&h=200&q=80"
               alt="Inventory Management"
               className={styles.featureIcon}
             />
@@ -35,7 +39,7 @@ const LandingPage = () => {
           </div>
           <div className={styles.featureItem}>
             <img
-              src="/images/fault-report-icon.png"
+              src="https://images.unsplash.com/photo-1557787164-4b43c6e5ef8e?crop=entropy&fit=crop&w=200&h=200&q=80"
               alt="Fault Reporting"
               className={styles.featureIcon}
             />
@@ -46,7 +50,7 @@ const LandingPage = () => {
           </div>
           <div className={styles.featureItem}>
             <img
-              src="/images/job-cards-icon.png"
+              src="https://images.unsplash.com/photo-1599058917219-ada99dca1d27?crop=entropy&fit=crop&w=200&h=200&q=80"
               alt="Job Card Management"
               className={styles.featureIcon}
             />
@@ -72,7 +76,7 @@ const LandingPage = () => {
             <p className={styles.testimonialText}>
               "Fault reporting and job card management have never been easier."
             </p>
-            <p className={styles.testimonialAuthor}>- John Doe, Biomedical Engineer</p>
+            <p className={styles.testimonialAuthor}>- Ephraim Ziwoya, Biomedical Engineer</p>
           </div>
         </div>
       </section>
@@ -103,15 +107,12 @@ const LandingPage = () => {
           <div className={styles.footerSection}>
             <h3>Follow Us</h3>
             <a href="https://www.linkedin.com">
-              <img src="/images/linkedin-icon.png" alt="LinkedIn" />
+              <img src="https://images.unsplash.com/photo-1581092332993-9b2f0e8524b9?crop=entropy&fit=crop&w=40&h=40&q=80" alt="LinkedIn" />
             </a>
             <a href="https://www.facebook.com">
-              <img src="/images/facebook-icon.png" alt="Facebook" />
+              <img src="https://images.unsplash.com/photo-1581093361272-6e424c4de77e?crop=entropy&fit=crop&w=40&h=40&q=80" alt="Facebook" />
             </a>
           </div>
-        </div>
-        <div className={styles.footerBottom}>
-          &copy; 2024 MediTrack Pro. All rights reserved.
         </div>
       </footer>
     </div>

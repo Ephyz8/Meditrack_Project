@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTools, FaClipboardList, FaCogs, FaChartPie } from 'react-icons/fa';
 import styles from './Dashboard.module.css';
-import OverviewCard from '../components/OverviewCard';
-import RecentActivity from '../components/RecentActivity';
-import StatisticsChart from '../components/StatisticsChart';
+import OverviewCard from './OverviewCard';
+import RecentActivity from './RecentActivity';
+import StatisticsChart from './StatisticsChart';
 
 const Dashboard = () => {
   return (
