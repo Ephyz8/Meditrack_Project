@@ -8,7 +8,8 @@ from .views import (
     PasswordResetRequestView, 
     SetNewPasswordView,
     LogoutUserView,
-    ResendOTPView  
+    ResendOTPView,
+    get_user_role  
 )
 
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password-reset-confirm'),
     path('set-new-password/', SetNewPasswordView.as_view(), name='set-new-password'),
     path('logout/', LogoutUserView.as_view(), name='logout'),
+    path('api/v1/auth/user-role/', get_user_role, name='user-role'),
 ]

@@ -1,3 +1,4 @@
+// src/components/RegisterForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -9,6 +10,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState('Medical Equipment User'); // Default role selection
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
   const navigate = useNavigate();
@@ -27,16 +29,13 @@ const RegisterForm = () => {
         email,
         password,
         password2: confirmPassword, 
+        role, // Pass role to the backend
       });
       
-      console.log(response);  // Log the full response to inspect it
-  
       if (response.status === 201) {
         alert('OTP has been sent to your email. Please verify.');
-        // Store the email in localStorage for use in the OTP verification step
-        localStorage.setItem('emailForOTP', email);
-        // Redirect to the OTP verification page
-        navigate('/otp-verification');
+        localStorage.setItem('emailForOTP', email); // Store email for OTP verification
+        navigate('/otp-verification'); // Redirect to OTP verification page
       }
     } catch (err) {
       if (err.response && err.response.data) {
@@ -102,6 +101,19 @@ const RegisterForm = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+
+        {/* Role selection dropdown */}
+        <select 
+          className={styles.inputField} 
+          value={role} 
+          onChange={(e) => setRole(e.target.value)} 
+          required
+        >
+          <option value="Medical Equipment User">Medical Equipment User</option>
+          <option value="engineer">Engineer</option>
+          <option value="admin">Admin</option>
+        </select>
+
         <button type="submit" className={styles.registerButton}>Register</button>
 
         <div className={styles.additionalLinks}>

@@ -3,19 +3,32 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken  # Import JWT token generation
+from django.contrib.auth import authenticate
+from rest_framework.decorators import api_view, permission_classes
+from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_decode
+
 from .serializers import (
     UserRegisterSerializer,
     SetNewPasswordSerializer,
     LoginSerializer,
-    TestAuthenticationSerializer,
     PasswordResetRequestSerializer,
     LogoutUserSerializer
 )
-from .tasks import send_otp_email_task  # Import the Celery task
-from .models import OneTimePassword, User  # Added User import
-from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.utils.http import urlsafe_base64_decode
+from .tasks import send_otp_email_task
+from .models import OneTimePassword, User
+
+
+# Helper function to generate JWT tokens for users
+def get_tokens_for_user(user):
+    refresh = RefreshToken.for_user(user)
+    return {
+        'refresh': str(refresh),
+        'access': str(refresh.access_token),
+        'role': user.role  # Include user role in the response
+    }
 
 
 class RegisterUserView(GenericAPIView):
@@ -27,7 +40,7 @@ class RegisterUserView(GenericAPIView):
         if serializer.is_valid(raise_exception=True):
             user = serializer.save()
             try:
-                send_otp_email_task.delay(user.email)  # Use Celery task for sending OTP
+                send_otp_email_task.delay(user.email)  # Send OTP using Celery
             except Exception as e:
                 return Response({
                     'message': 'Account created but failed to send OTP. Try again later.'
@@ -93,15 +106,20 @@ class ResendOTPView(GenericAPIView):
         }, status=status.HTTP_200_OK)
 
 
+# Updated LoginUserView with JWT token generation
 class LoginUserView(GenericAPIView):
     serializer_class = LoginSerializer
 
     def post(self, request):
-        user_data = request.data
-        serializer = self.serializer_class(data=user_data, context={'request': request})
-        if serializer.is_valid(raise_exception=True):
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        email = request.data.get('email')
+        password = request.data.get('password')
+        user = authenticate(email=email, password=password)
+        if user:
+            if user.is_verified:
+                token_data = get_tokens_for_user(user)  # Generate tokens and include user role
+                return Response(token_data, status=status.HTTP_200_OK)
+            return Response({"error": "Email is not verified."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TestAuthenticationView(GenericAPIView):
@@ -160,3 +178,14 @@ class LogoutUserView(GenericAPIView):
         serializer.save()
         request.user.auth_token.delete()
         return Response({'message': 'User logged out successfully'}, status=status.HTTP_200_OK)
+
+
+# Get the authenticated user's role
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_user_role(request):
+    if request.user.is_authenticated:
+        user_role = request.user.role  # Fetch the user's role
+        return Response({'role': user_role}, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'User is not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)

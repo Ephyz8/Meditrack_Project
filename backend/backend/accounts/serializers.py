@@ -10,16 +10,15 @@ from .utils import send_normal_email
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 
+# User registration serializer
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
     password2 = serializers.CharField(max_length=68, min_length=6, write_only=True)
+    role = serializers.ChoiceField(choices=User.ROLE_CHOICES, default='user', required=False)  # Role field added
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'password', 'password2']
-        extra_kwargs = {
-            'password': {'write_only': True}
-        }
+        fields = ['email', 'first_name', 'last_name', 'password', 'password2', 'role']  # Include role field
 
     def validate(self, attrs):
         password = attrs.get('password', '')
@@ -30,15 +29,17 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data.pop('password2')
+        role = validated_data.get('role', 'user')  # Default to 'user' if no role is specified
         user = User.objects.create_user(
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
             password=validated_data['password'],
+            role=role  # Assign role
         )
         return user
 
-
+# User login serializer
 class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255, min_length=6)
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
@@ -75,11 +76,7 @@ class LoginSerializer(serializers.ModelSerializer):
             'refresh_token': str(user_tokens.get('refresh'))
         }
 
-
-class TestAuthenticationSerializer(serializers.Serializer):
-    msg = serializers.CharField(max_length=255)
-
-
+# Password reset request serializer
 class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField(max_length=255, min_length=6)
 
@@ -108,7 +105,7 @@ class PasswordResetRequestSerializer(serializers.Serializer):
 
         return super().validate(attrs)
 
-
+# Set new password serializer
 class SetNewPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
     password2 = serializers.CharField(max_length=68, min_length=6, write_only=True)
@@ -136,7 +133,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
         except (TypeError, ValueError, OverflowError, User.DoesNotExist, DjangoUnicodeDecodeError):
             raise AuthenticationFailed('The reset link is invalid or has expired.')
 
-
+# Logout serializer
 class LogoutUserSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 

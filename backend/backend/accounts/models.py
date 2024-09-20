@@ -6,12 +6,18 @@ from datetime import timedelta
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
 
-# Create your models here.
-
+# Custom user model
 class User(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICES = (
+        ('engineer', 'Engineer'),
+        ('user', 'Medical Equipment User'),  # Aligning with frontend terminology
+        ('admin', 'Admin'),  # Including admin role if required in the project
+    )
+
     email = models.EmailField(max_length=255, unique=True, verbose_name=_("Email Address"))
     first_name = models.CharField(max_length=100, verbose_name=_("First Name"))
     last_name = models.CharField(max_length=100, verbose_name=_("Last Name"))
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='user')  # Role field
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -39,15 +45,15 @@ class User(AbstractBaseUser, PermissionsMixin):
             'access': str(refresh.access_token)
         }
 
-
+# Model for handling One-Time Passwords (OTPs)
 class OneTimePassword(models.Model):
     """Model for storing one-time passwords (OTPs) sent to users."""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Allow multiple OTPs per user
     otp = models.CharField(max_length=6, unique=True)  # 6-character OTP
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the OTP was created
     
     def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name} - {self.otp} passcode'
+        return f'{self.user.get_full_name} - {self.otp} passcode'
     
     class Meta:
         ordering = ['-created_at']

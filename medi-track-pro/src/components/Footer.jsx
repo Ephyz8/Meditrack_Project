@@ -1,40 +1,39 @@
-// src/components/Footer.jsx
 import React from 'react';
-import styles from './Footer.module.css'; // Import CSS module
+import { Link } from 'react-router-dom';
+import styles from './Footer.module.css'; // Assuming a separate CSS file for footer styles
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-          <h2 className={styles.footerTitle}>About Us</h2>
-          <p className={styles.footerText}>
-            MediTrack Pro is dedicated to providing innovative solutions for equipment management and fault reporting. Our platform helps streamline maintenance processes and improve operational efficiency.
-          </p>
+          <h3>About MediTrack Pro</h3>
+          <p>Your solution to efficient medical equipment management.</p>
         </div>
         <div className={styles.footerSection}>
-          <h2 className={styles.footerTitle}>Quick Links</h2>
-          <ul className={styles.footerLinks}>
-            <li><a href="/" className={styles.footerLink}>Home</a></li>
-            <li><a href="/dashboard" className={styles.footerLink}>Dashboard</a></li>
-            <li><a href="/equipment" className={styles.footerLink}>Equipment</a></li>
-            <li><a href="/fault-reporting" className={styles.footerLink}>Fault Reporting</a></li>
-            <li><a href="/job-cards" className={styles.footerLink}>Job Cards</a></li>
-            <li><a href="/ppm-tasks" className={styles.footerLink}>PPM Tasks</a></li>
-            <li><a href="/daily-logs" className={styles.footerLink}>Daily Logs</a></li>
-          </ul>
+          <h3>Links</h3>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className={styles.footerSection}>
-          <h2 className={styles.footerTitle}>Contact Us</h2>
-          <p className={styles.footerText}>
-            Email: <a href="mailto:support@meditrackpro.com" className={styles.footerLink}>support@meditrackpro.com</a><br />
-            Phone: <a href="tel:+265 882 746 364" className={styles.footerLink}>+123 456 789</a>
-          </p>
+          <h3>Follow Us</h3>
+          <a href="https://www.linkedin.com">
+            <img
+              src="https://images.unsplash.com/photo-1581092332993-9b2f0e8524b9?crop=entropy&fit=crop&w=40&h=40&q=80"
+              alt="LinkedIn"
+            />
+          </a>
+          <a href="https://www.facebook.com">
+            <img
+              src="https://images.unsplash.com/photo-1581093361272-6e424c4de77e?crop=entropy&fit=crop&w=40&h=40&q=80"
+              alt="Facebook"
+            />
+          </a>
         </div>
       </div>
-      <div className={styles.footerBottom}>
-        <p className={styles.footerText}>© 2024 MediTrack Pro. All rights reserved.</p>
-      </div>
+      <p className={styles.copyright}>
+        © {new Date().getFullYear()} MediTrack Pro. All rights reserved.
+      </p>
     </footer>
   );
 };

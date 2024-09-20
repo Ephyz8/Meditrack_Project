@@ -1,56 +1,55 @@
 /* src/components/Navbar.module.css */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #003366; /* Dark blue background */
-  }
-  
-  .logoContainer {
-    flex: 1;
-  }
-  
-  .logoLink {
-    display: inline-block;
-  }
-  
-  .logo {
-    height: 40px; /* Adjust size as needed */
-  }
-  
-  .navLinks {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
-  }
-  
-  .navLinks li {
-    margin: 0;
-  }
-  
-  .navLinks a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .navLinks a.active {
-    border-bottom: 2px solid #f5a623; /* Highlight active link */
-  }
-  
-  .authLinks {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .authLink {
-    text-decoration: none;
-    color: #f5a623; /* Accent color for auth links */
-  }
-  
-  .authLink:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #003366; /* Dark blue background */
+}
+
+.logoContainer {
+  flex: 1;
+}
+
+.logoLink {
+  display: inline-block;
+}
+
+.logo {
+  height: 40px; /* Adjust size as needed */
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.navLinks li {
+  margin: 0;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navLinks a.active {
+  border-bottom: 2px solid #f5a623; /* Highlight active link */
+}
+
+.authLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.authLink {
+  text-decoration: none;
+  color: #f5a623; /* Accent color for auth links */
+}
+
+.authLink:hover {
+  text-decoration: underline;
+}

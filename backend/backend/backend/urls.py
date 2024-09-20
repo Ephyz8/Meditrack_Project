@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/v1/auth/', include('accounts.urls')),  # Route for accounts app URLs
     path('api/v1/jobcards/', include('jobcard.urls')),  # Route for jobcard app URLs
     path('', home_view, name='home'),  # Root URL pattern
+    
 ]

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Home.module.css";
 import EquipmentOverview from "../components/EquipmentOverview";
 import FaultReporting from "../components/FaultReporting";
 import JobCardSummary from "../components/JobCardSummary";
 import PPMTasks from "../components/PPMTasks";
 import DailyLogsOverview from "../components/DailyLogsOverview";
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (
@@ -54,9 +54,6 @@ const Home = () => {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <p>© {new Date().getFullYear()} MediTrack Pro. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

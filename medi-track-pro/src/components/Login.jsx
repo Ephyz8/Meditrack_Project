@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { loginUser } from '../utils/Auth';  // Import the loginUser utility function
 import styles from './LoginForm.module.css';  // Use your existing CSS
 
 const LoginForm = () => {
@@ -12,12 +12,21 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/auth/login/', { email, password });
-      // Store tokens (access and refresh) in localStorage
-      localStorage.setItem('authToken', response.data.token); // Adjust token as per API response
-      navigate('/dashboard');  // Redirect to dashboard after login
+      // Use the loginUser function from Auth.js
+      const response = await loginUser(email, password);
+
+      // Store tokens (access and refresh) and role in localStorage
+      localStorage.setItem('authToken', response.access);  // Store JWT token
+      localStorage.setItem('role', response.role);  // Store user role
+
+      // Navigate to different dashboards based on role
+      if (response.role === 'admin') {
+        navigate('/admin-dashboard');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (err) {
-      setError('Invalid credentials. Please try again.');
+      setError(err.message || 'Invalid credentials. Please try again.');
     }
   };
 
