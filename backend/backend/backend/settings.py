@@ -73,9 +73,8 @@ ROOT_URLCONF = 'backend.urls'
 
 CORS_ALLOW_ALL_ORIGINS = True 
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  # React frontend
-]
+CORS_ALLOW_HEADERS = '*'
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 
 TEMPLATES = [
     {

@@ -1,38 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import EquipmentOverview from '../components/EquipmentOverview'; // Bringing in EquipmentOverview from Home
-import FaultReporting from '../components/FaultReporting'; // Bringing in FaultReporting from Home
-import JobCardSummary from '../components/JobCardSummary'; // Bringing in JobCardSummary from Home
-import PPMTasks from '../components/PPMTasks'; // Bringing in PPMTasks from Home
-import DailyLogsOverview from '../components/DailyLogsOverview'; // Bringing in DailyLogsOverview from Home
+import EquipmentOverview from '../components/EquipmentOverview';
+import FaultReporting from '../components/FaultReporting';
+import JobCardSummary from '../components/JobCardSummary';
+import PPMTasks from '../components/PPMTasks';
+import DailyLogsOverview from '../components/DailyLogsOverview';
 import Button from '../components/Button';
 import styles from './LandingPage.module.css'; // Using one unified style file
 
 const LandingPage = () => {
-  const [currentImage, setCurrentImage] = useState('');
-
-  useEffect(() => {
-    const fetchRandomImage = async () => {
-      const response = await fetch('https://source.unsplash.com/random/1920x1080/?medical');
-      setCurrentImage(response.url);
-    };
-
-    const interval = setInterval(() => {
-      fetchRandomImage();
-    }, 500000); // Change image every 5 seconds
-
-    // Fetch the first image immediately
-    fetchRandomImage();
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className={styles.landingPage}>
       {/* Hero Section */}
       <header
         className={styles.hero}
-        style={{ backgroundImage: `url(${currentImage})` }}
+        style={{ backgroundImage: `url(/images/hero.jpg)` }}
       >
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>MediTrack Pro</h1>
@@ -46,44 +28,44 @@ const LandingPage = () => {
       </header>
 
       {/* Features Section */}
-<section className={styles.features}>
-  <h2 className={styles.sectionHeading}>Key Features</h2>
-  <div className={styles.featureList}>
-    <div className={styles.featureItem}>
-      <img
-        src="https://source.unsplash.com/random/200x200/?medical,equipment"
-        alt="Inventory Management"
-        className={styles.featureIcon}
-      />
-      <h3 className={styles.featureTitle}>Equipment Inventory</h3>
-      <p className={styles.featureDescription}>
-        Keep track of all medical equipment with detailed records.
-      </p>
-    </div>
-    <div className={styles.featureItem}>
-      <img
-        src="https://source.unsplash.com/random/200x200/?medical,hospital"
-        alt="Fault Reporting"
-        className={styles.featureIcon}
-      />
-      <h3 className={styles.featureTitle}>Fault Reporting</h3>
-      <p className={styles.featureDescription}>
-        Submit and resolve fault reports with ease.
-      </p>
-    </div>
-    <div className={styles.featureItem}>
-      <img
-        src="https://source.unsplash.com/random/200x200/?medical,maintenance"
-        alt="Job Card Management"
-        className={styles.featureIcon}
-      />
-      <h3 className={styles.featureTitle}>Job Card Management</h3>
-      <p className={styles.featureDescription}>
-        Assign and track maintenance tasks seamlessly.
-      </p>
-    </div>
-  </div>
-</section>
+      <section className={styles.features}>
+        <h2 className={styles.sectionHeading}>Key Features</h2>
+        <div className={styles.featureList}>
+          <div className={styles.featureItem}>
+            <img
+              src="https://source.unsplash.com/random/200x200/?medical,equipment"
+              alt="Inventory Management"
+              className={styles.featureIcon}
+            />
+            <h3 className={styles.featureTitle}>Equipment Inventory</h3>
+            <p className={styles.featureDescription}>
+              Keep track of all medical equipment with detailed records.
+            </p>
+          </div>
+          <div className={styles.featureItem}>
+            <img
+              src="https://source.unsplash.com/random/200x200/?medical,hospital"
+              alt="Fault Reporting"
+              className={styles.featureIcon}
+            />
+            <h3 className={styles.featureTitle}>Fault Reporting</h3>
+            <p className={styles.featureDescription}>
+              Submit and resolve fault reports with ease.
+            </p>
+          </div>
+          <div className={styles.featureItem}>
+            <img
+              src="https://source.unsplash.com/random/200x200/?medical,maintenance"
+              alt="Job Card Management"
+              className={styles.featureIcon}
+            />
+            <h3 className={styles.featureTitle}>Job Card Management</h3>
+            <p className={styles.featureDescription}>
+              Assign and track maintenance tasks seamlessly.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Dashboard Overview Section */}
       <section className={styles.dashboardOverview}>

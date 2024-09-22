@@ -19,7 +19,7 @@
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  background-color: rgba(0, 51, 102, 0.5); /* Dark overlay for text contrast */
+  background-color: rgba(237, 240, 243, 0.5); /* Dark overlay for text contrast */
 }
 
 .heroContent {
@@ -55,7 +55,7 @@
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 30px;
-  color: #f4f4f9;
+  color: #0e022b;
 }
 
 .heroButton {
