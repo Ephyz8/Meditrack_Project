@@ -118,9 +118,8 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Hero Section */
 .hero {
-  /* background-image: url("/images/hero-background.jpg"); */
+  background-image: url('https://images.unsplash.com/photo-1556228373-566450fadb36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Medical-themed image from Unsplash */
   background-size: cover;
   background-position: center;
   color: white;

@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css'; // Import CSS module
@@ -34,7 +33,7 @@ const Navbar = () => {
             Dashboard
           </Link>
         </li>
-        {isLoggedIn && role === 'Medical Equipment User' && (
+        {isLoggedIn && role === 'user' && (
           <li>
             <Link 
               to="/fault-reporting" 

@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+// Set up the base URL from an environment variable
+const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8000'; // Default to localhost if not set
+
 // Function to log in a user and store token & role
 export const loginUser = async (email, password) => {
   try {
-    const response = await axios.post('http://localhost:8000/api/v1/auth/login/', {
+    const response = await axios.post(`${baseURL}/api/v1/auth/login/`, {
       email,
       password,
     });
@@ -17,18 +20,23 @@ export const loginUser = async (email, password) => {
     return response.data;
   } catch (error) {
     // Return a more descriptive error message
-    throw error.response ? error.response.data : "Login failed";
+    throw error.response ? error.response.data : 'Login failed';
   }
 };
 
-// Function to check if the token is valid or expired
+// Function to get the user role
+export const getUserRole = () => {
+  return localStorage.getItem('role');
+};
+
+// Function to check if the token is expired
 const isTokenExpired = (token) => {
   try {
     const payload = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
     const expiry = payload.exp * 1000; // Convert expiry to milliseconds
     return Date.now() > expiry;
   } catch (error) {
-    return true; // If there's an error decoding, consider the token expired
+    return true; // Consider the token expired if decoding fails
   }
 };
 
@@ -42,23 +50,11 @@ export const isAuthenticated = () => {
     logoutUser(); // Automatically log out if token is expired
     return false;
   }
-  
   return true;
-};
-
-// Function to get user role
-export const getUserRole = () => {
-  return localStorage.getItem('role');
 };
 
 // Function to log out the user
 export const logoutUser = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('role');
-};
-
-// Function to get the authorization header with token
-export const getAuthHeader = () => {
-  const token = localStorage.getItem('token');
-  return token ? { Authorization: `Bearer ${token}` } : {};
 };

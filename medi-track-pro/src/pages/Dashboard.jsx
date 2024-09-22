@@ -1,16 +1,39 @@
-// src/pages/Dashboard.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaTools, FaClipboardList, FaCogs, FaChartPie } from 'react-icons/fa';
 import styles from './Dashboard.module.css';
 import OverviewCard from '../components/OverviewCard';
 import RecentActivity from '../components/RecentActivity';
 import StatisticsChart from '../components/StatisticsChart';
+import UserDashboard from '../components/UserDashboard';
+import EngineerDashboard from '../components/EngineerDashboard';
+import AdminDashboard from '../components/AdminDashboard';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const [role, setRole] = useState(null);
+
+  useEffect(() => {
+    const userRole = localStorage.getItem('role');
+    if (!userRole) {
+      navigate('/login');
+    } else {
+      setRole(userRole);
+    }
+  }, [navigate]);
+
+  // Render specific dashboard based on user role
+  if (role === 'admin') {
+    return <AdminDashboard />;
+  } else if (role === 'engineer') {
+    return <EngineerDashboard />;
+  } else if (role === 'user') {
+    return <UserDashboard />;
+  } 
+
+  // Default dashboard content if no specific role is rendered
   return (
     <div className={styles.dashboard}>
-      {/* Navbar */}
       <nav className={styles.navbar}>
         <h1 className={styles.navTitle}>MediTrack Pro Dashboard</h1>
         <div className={styles.navLinks}>
@@ -20,9 +43,7 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* Main Content */}
       <div className={styles.content}>
-        {/* Sidebar */}
         <aside className={styles.sidebar}>
           <ul>
             <li><Link to="/job-cards"><FaClipboardList /> Job Cards</Link></li>
@@ -32,7 +53,6 @@ const Dashboard = () => {
           </ul>
         </aside>
 
-        {/* Dashboard Main */}
         <main className={styles.main}>
           <section className={styles.overview}>
             <h2>Overview</h2>

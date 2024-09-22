@@ -1,4 +1,3 @@
-// src/components/PublicNavbar.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css'; // Import CSS module

@@ -1,4 +1,3 @@
-// src/components/PPMTasks.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './PPMTasks.module.css';
@@ -11,10 +10,11 @@ const PPMTasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('/api/v1/ppm-tasks/'); // Update with your API endpoint
+        const response = await axios.get('/api/v1/ppm-tasks/'); // Ensure this matches your API endpoint
         setTasks(response.data);
-      } catch (error) {
+      } catch (err) {
         setError('Failed to fetch PPM tasks.');
+        console.error('Error fetching PPM tasks:', err);
       } finally {
         setLoading(false);
       }

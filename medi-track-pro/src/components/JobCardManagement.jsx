@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./JobCardManagement.module.css";
+import styles from "./JobCardManagement.module.css"; // Import as a CSS module
 
 const JobCardManagement = () => {
   // State for form fields
@@ -73,125 +73,41 @@ const JobCardManagement = () => {
   };
 
   return (
-    <div className="job-card-management">
+    <div className={styles.jobCardManagement}>
       <h2>Manage Job Cards</h2>
       
       {/* Job Card Form */}
-      <form onSubmit={handleSubmit} className="job-card-form">
+      <form onSubmit={handleSubmit} className={styles.jobCardForm}>
         <h3>Create a New Job Card</h3>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className={styles.errorMessage}>{error}</p>}
         
-        <div>
-          <label>Department</label>
-          <input 
-            type="text" 
-            name="department" 
-            value={jobCardData.department} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Ward</label>
-          <input 
-            type="text" 
-            name="ward" 
-            value={jobCardData.ward} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Reported By</label>
-          <input 
-            type="text" 
-            name="reported_by" 
-            value={jobCardData.reported_by} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Equipment Name</label>
-          <input 
-            type="text" 
-            name="equipment_name" 
-            value={jobCardData.equipment_name} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Model</label>
-          <input 
-            type="text" 
-            name="model" 
-            value={jobCardData.model} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Brand</label>
-          <input 
-            type="text" 
-            name="brand" 
-            value={jobCardData.brand} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Serial Number</label>
-          <input 
-            type="text" 
-            name="serial_number" 
-            value={jobCardData.serial_number} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Fault Reported</label>
-          <textarea 
-            name="fault_reported" 
-            value={jobCardData.fault_reported} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Diagnosis</label>
-          <textarea 
-            name="diagnosis" 
-            value={jobCardData.diagnosis} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Action Done</label>
-          <textarea 
-            name="action_done" 
-            value={jobCardData.action_done} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Required Spare Parts</label>
-          <textarea 
-            name="required_spare_parts" 
-            value={jobCardData.required_spare_parts} 
-            onChange={handleChange} 
-          />
-        </div>
+        {Object.keys(jobCardData).map((key) => (
+          <div key={key}>
+            <label>{key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " ")}</label>
+            {key.includes("reported") || key.includes("action") ? (
+              <textarea 
+                name={key} 
+                value={jobCardData[key]} 
+                onChange={handleChange} 
+                required 
+              />
+            ) : (
+              <input 
+                type="text" 
+                name={key} 
+                value={jobCardData[key]} 
+                onChange={handleChange} 
+                required 
+              />
+            )}
+          </div>
+        ))}
         <button type="submit">Submit Job Card</button>
       </form>
 
       {/* Job Card List */}
       <h3>Job Card List</h3>
-      <div className="job-card-list">
+      <div className={styles.jobCardList}>
         {jobCards.length === 0 ? (
           <p>No job cards available.</p>
         ) : (

@@ -1,7 +1,7 @@
 // src/components/DailyLogsOverview.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './DailyLogsOverview.module.css';
+import styles from './JobCardSummary.module.css'; // Updated to use JobCardSummary styles
 
 const DailyLogsOverview = () => {
   const [dailyLogs, setDailyLogs] = useState([]);

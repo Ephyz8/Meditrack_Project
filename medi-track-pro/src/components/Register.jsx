@@ -1,8 +1,7 @@
-// src/components/RegisterForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styles from './RegisterForm.module.css';  
+import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -21,14 +20,14 @@ const RegisterForm = () => {
       setError('Passwords do not match');
       return;
     }
-  
+
     try {
       const response = await axios.post('http://localhost:8000/api/v1/auth/register/', {
         first_name: firstName,
         last_name: lastName,
         email,
         password,
-        password2: confirmPassword, 
+        password2: confirmPassword,
         role, // Pass role to the backend
       });
       
@@ -44,7 +43,7 @@ const RegisterForm = () => {
         setError('Failed to register. Please try again.');
       }
     }
-  };  
+  };
 
   // Helper function to display error messages
   const renderErrorMessages = (errorObj) => {
@@ -102,7 +101,6 @@ const RegisterForm = () => {
           required
         />
 
-        {/* Role selection dropdown */}
         <select 
           className={styles.inputField} 
           value={role} 
