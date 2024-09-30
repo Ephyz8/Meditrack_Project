@@ -159,5 +159,5 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 **Ephraim Ziwoya**  
 Biomedical Engineer & Backend Developer  
-[Your Email] | [Your LinkedIn] | [Your GitHub]
+
 
